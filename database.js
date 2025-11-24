@@ -9,6 +9,7 @@ const dbConfig = {
    //// // port:3310,
    /// // database: "cellma4_api",
    /// // connectionLimit: 10
+   
 
    //Below code is for Pre-release server
     host: "10.0.0.16",
