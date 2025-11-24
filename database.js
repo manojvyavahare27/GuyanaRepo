@@ -3,6 +3,7 @@ const fs = require('fs');
 //Added by saurabh
 
 //added by Manoj
+
 // MySQL database configuration
 const dbConfig = {
     ///// host: "10.0.0.64",
