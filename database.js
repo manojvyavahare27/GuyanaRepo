@@ -2,7 +2,13 @@ const mysql = require('mysql');
 const fs = require('fs');
 //Added by saurabh
 
+//<<<<<<< HEAD
 ///Added for testing
+//=======
+//added by Manoj
+//Added by Dayal
+
+///>>>>>>> 5edb7df293326853c5834340af5e2940d710cf35
 // MySQL database configuration
 const dbConfig = {
     ///// host: "10.0.0.64",
@@ -11,7 +17,7 @@ const dbConfig = {
    //// // port:3310,
    /// // database: "cellma4_api",
    /// // connectionLimit: 10
-   
+
 
    //Below code is for Pre-release server
     host: "10.0.0.16",
