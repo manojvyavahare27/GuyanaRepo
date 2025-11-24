@@ -1,6 +1,8 @@
 const mysql = require('mysql');
 const fs = require('fs');
 //Added by saurabh
+
+///Added for testing
 // MySQL database configuration
 const dbConfig = {
     ///// host: "10.0.0.64",
