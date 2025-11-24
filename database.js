@@ -1,12 +1,5 @@
 const mysql = require('mysql');
 const fs = require('fs');
-//Added by saurabh
-
-//<<<<<<< HEAD
-///Added for testing
-//=======
-//added by Manoj
-//Added by Dayal
 
 ///>>>>>>> 5edb7df293326853c5834340af5e2940d710cf35
 // MySQL database configuration
