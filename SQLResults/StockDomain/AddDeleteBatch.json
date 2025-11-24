@@ -1,0 +1,28 @@
+[
+  {
+    "stock_id": 4532,
+    "stock_est_id": 73,
+    "stock_name": "Aspirin 81mg tablet",
+    "stock_category": "Medication",
+    "stock_sub_category": null,
+    "stock_que_code": "774656009",
+    "stock_que_local_code": "CLDQLC.41030",
+    "stock_barcode": "774656009",
+    "stock_item_barcode": null,
+    "stock_letters_display_group_eli_id": null,
+    "stock_total_count": 10000,
+    "stock_read_only": null,
+    "stock_auto_gen_barcode": null,
+    "stock_banding_pdf": null,
+    "stock_is_health_scheme_applicable": null,
+    "stock_gender": null,
+    "stock_record_status": "approved",
+    "stock_created": "05/11/2025",
+    "stock_created_by": "super",
+    "stock_imported": "05/11/2025",
+    "stock_imported_method": null,
+    "stock_description": null,
+    "stock_desc_other_lang": null,
+    "stock_classification": null
+  }
+]
