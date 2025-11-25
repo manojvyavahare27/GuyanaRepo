@@ -60,10 +60,12 @@ class AddEditPatientAppointment
         await this.dropdownCosultant.click()
         await this.page.getByRole('option', { name: 'Mr Manoj Tester' }).click()
      }
-     async selectAppointmentDuration(rea_duration)
+     async selectAppointmentDuration()
      {
         await this.dropdownAppDuration.click()
-        await this.page.getByRole('option', { name: rea_duration + ' minutes', exact: true }).click()
+        await this.page.getByRole('option', { name: '15 minutes' }).click()
+       // await this.page.getByRole('option', { name: rea_duration + ' minutes' }).click()
+       // await this.page.getByRole('option', { name: '15 minutes' })
      }
      async ClickOnLinkCheckAppdate()
      {

@@ -109,7 +109,7 @@ test('Service Appointment @Appt',async ({page})=>{
     await addreferral.enterTimeOfArrival()
    
     await addreferral.clickOnSaveButton()
-    //await expect(page.getByText('Referral added successfully')).toHaveText('Referral added successfully')
+    await expect(page.getByText('Referral added successfully')).toHaveText('Referral added successfully')
     await addreferral.clickOnBackButton()
     //*********************************************************** */
     //links

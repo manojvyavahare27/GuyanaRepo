@@ -119,8 +119,8 @@ test.describe('Excel Conversion', () => {
         await patientsearch.clickOnSearchButton();
         await patientsearch.clickOnAddPatientbutton();
         await patientduplicatecheck.clickOnDuplicateCheckButton();
-        //await expect(page.getByText("Photo Identification required")).toHaveText("Photo Identification required");
-       // await expect(page.getByText("Photo Identification ID required")).toHaveText("Photo Identification ID required");
+        // await expect(page.getByText("Photo Identification required")).toHaveText("Photo Identification required");
+        // await expect(page.getByText("Photo Identification ID required")).toHaveText("Photo Identification ID required");
        // await expect(page.getByText("Middle name(s) is required")).toHaveText("Middle name(s) is required");
 
        
@@ -365,24 +365,22 @@ test.describe('Excel Conversion', () => {
                 throw new Error('❌ Patient.png not found anywhere under the workspace!');
               }
               
-              console.log('✅ Found Patient.png at:', targetFilePath);              
+              console.log('✅ Found Patient.png at:', targetFilePath);
+              
               // Upload the file using Playwright
               const fileInput = await page.getByTestId('PhotoCameraIcon');
               await fileInput.setInputFiles(targetFilePath);
               
-              // await page.getByTestId("Upload").click();
-              // await page.waitForTimeout(1000);
+             // await page.getByTestId("Upload").click();
+              await page.waitForTimeout(1000);
 
         //await page.waitForTimeout(1000);
         await expect(page.getByText('Patient photo uploaded successfully')).toHaveText('Patient photo uploaded successfully')
         await printidcard.clickOnSavebtn();
         await page.waitForTimeout(2000);
-         // await page.pause()
-      await addpatient.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref);
-      await addpatient.clickOnsavebutton()
-
-       await page.getByLabel('profileIcon').click();
-         await page.getByText('Logout').click();
+       // await page.pause();
+        await page.getByLabel('profileIcon').click();
+        await page.getByText('Logout').click();
        
         //await menu.clickOnMenubtn();
         //await menu.clickOnLogout();

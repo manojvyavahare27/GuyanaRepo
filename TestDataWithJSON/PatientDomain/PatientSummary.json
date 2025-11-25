@@ -11,9 +11,9 @@
   ],
   "PatientDetails": [
     {
-      "pat_hospital_ref": "hosp0524Id045",
+      "pat_hospital_ref": "hosp0524Id044",
       "pat_title": "B/O",
-      "pat_firstname": "EONHK",
+      "pat_firstname": "EONHJ",
       "pat_surname": "Riomedtest",
       "pat_sex": "M",
       "pat_dob": "28/09/2023",
@@ -120,6 +120,28 @@
     {
       "pacr_category": "Recommendations",
       "pacr_que_name": "Rectoplasty"
+    }
+  ],
+  "MasterPrice": [
+    {
+      "mepr_item_name": "Special Bed",
+      "mepr_category": "Bed Type",
+      "mepr_item_code2": "ADLILC.13048A",
+      "mepr_item_code2_type": "Local",
+      "mepr_master_price": "150.55",
+      "varpriVariableTypeEliText": "Camp",
+      "varpriRate": "55"
+    }
+  ],
+  "EditMasterPrice": [
+    {
+      "mepr_item_name": "Special Bed",
+      "mepr_category": "Bed Type",
+      "mepr_item_code2": "ADLILC.13048A",
+      "mepr_item_code2_type": "Local",
+      "mepr_master_price": "145.55",
+      "varpriVariableTypeEliText": "Camp",
+      "varpriRate": 55
     }
   ]
 }

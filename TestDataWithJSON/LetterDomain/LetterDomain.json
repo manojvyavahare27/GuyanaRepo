@@ -2,7 +2,7 @@
   "loginDetails": [
     {
       "username": "prerelease.auto",
-      "password": "Manoj@2023"
+      "password": "Manoj@2025"
     },
     {
       "username": "letter.auth",
@@ -10,7 +10,7 @@
     },
     {
       "username": "prerelease.auto",
-      "password": "Manoj@2023"
+      "password": "Manoj@2025"
     },
     {
       "username": "manoj.auto",
@@ -34,7 +34,7 @@
       "pat_firstname": "meher",
       "pat_surname": "Riomedtest",
       "pat_sex": "F",
-      "pat_dob": "22/09/2023",
+      "pat_dob": "01/01/2000",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
       "pat_occupation": "Trainer",
@@ -62,36 +62,36 @@
   ],
   "letterSummries": [
     {
-      "patletd_start_date": "14/07/2025",
-      "patletd_end_date": "15/07/2025",
-      "patlet_name": "Referral Letter",
+      "patletd_start_date": "23/09/2025",
+      "patletd_end_date": "24/09/2025",
+      "patlet_name": "Automation Letter",
       "patlet_status": "Not Sent",
       "patletd_patient_location": "Cardio Location",
       "patlet_type": "Referral Letter",
-      "patlet_letter_date": "15/07/2025"
+      "patlet_letter_date": "24/09/2025"
     }
   ],
   "letterSendApproved": [
     {
-      "patletd_start_date": "14/07/2025",
-      "patletd_end_date": "15/07/2025",
-      "patlet_name": "Referral Letter",
+      "patletd_start_date": "23/09/2025",
+      "patletd_end_date": "24/09/2025",
+      "patlet_name": "Automation Letter",
       "patlet_status": "Authorised",
       "patletd_patient_location": "Cardio Location",
       "patlet_type": "Referral Letter",
-      "patlet_letter_date": "15/07/2025"
+      "patlet_letter_date": "24/09/2025"
     }
   ],
   "DeleteRecord": [
     {
       "patletd_start_date": "01/01/2025",
-      "patletd_end_date": "15/07/2025",
+      "patletd_end_date": "24/09/2025",
       "input_LetterName": "AutomationLetter",
       "input_Status_": "Not Sent",
       "patlet_status": "Authorised",
       "patletd_patient_location": "Cardio Location",
       "patlet_name": "Referral Letter",
-      "patlet_letter_date": "15/07/2025"
+      "patlet_letter_date": "24/09/2025"
     }
   ]
 }

@@ -4,7 +4,7 @@ class ConfirmExisting
     constructor(page)
     {
         this.page=page
-         this.txtbox_alsoknownas=page.locator("xpath=//input[@id='Also Known As']")
+        this.txtbox_alsoknownas=page.locator("xpath=//input[@id='Also Known As']")
         this.dropdown_InterpreterReq=page.getByTestId('Interpreter Required').getByRole('button', { name: 'No' })
         this.txtbox_emailId=page.locator('input[name="addEmail"]')
         this.txtbox_mobileNo=page.locator('input[name="addMobile"]')

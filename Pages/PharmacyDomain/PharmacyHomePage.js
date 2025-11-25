@@ -12,7 +12,7 @@ class PharmacyHomePage {
     this.ptPrescriptionStatus = page.locator('input[data-testid="papreStatus"]');
     this.ptPharmacySearchLocation = page.locator("xpath=//input[@id='pharmacyLocationSearch']");
 
-    this.ptSearchButton=page.locator("xpath=//button[@data-testid='Search']")
+    this.ptSearchButton=page.locator("xpath=//div[contains(text(),'Search')]")
 
     //Links
     this.payLink=page.locator("xpath=//a[@data-testid='Pay']")
@@ -25,7 +25,6 @@ class PharmacyHomePage {
     this.awaitingProductionLink=page.locator("xpath=//a[normalize-space()='Awaiting Production']")
     this.partiallyProducedLink=page.locator("xpath=//a[normalize-space()='Partially Produced']")
     this.producedLink=page.locator("xpath=//a[normalize-space()='Produced']")
-    this.CollectedLink=page.locator("xpath=//a[normalize-space()='Collected']")
 
     //Prescription Details
     this.prescriptionTypeInput = page.locator('xpath=//input[@name="prescriptionType"]');
@@ -51,14 +50,14 @@ this.createAndAdministerPrescriptionButton = page.locator('xpath=//button[@data-
     this.buttonSaveDetails=page.locator("xpath=//button[@id=':r46a:']//div[@class='MuiGrid2-root MuiGrid2-direction-xs-row css-1n5khr6'][normalize-space()='Save']")
     this.expandMedicationForDispense=page.locator("xpath=//button[@aria-label='expandRowIconParacetamol 500mg / Ibuprofen 200mg tablets']")
     this.txtboxDispenseQty=page.locator("xpath=//label[@id='Dispense Quantity']")
-    this.butttonDispense=page.locator("xpath=//button[@data-testid='Dispense']")
+    this.butttonDispense=page.locator("xpath=//button[@aria-label='Dispense']")
     this.buttobBackToStock=page.locator("xpath=//button[@data-testid='Back to Stock']")
     this.backtoStockQuantity=page.locator("xpath=//input[contains(@name, 'quantity')]")
     this.txtareaReasonForReturn=page.locator("xpath=//textarea[@id='reasonForReturn']")
-    this.buttonSaveBackToStock=page.locator("xpath=//button[@data-testid='Save']")
+    this.buttonSaveBackToStock=page.locator("xpath=//button[@data-testid='saveBacKToStock']")
 
     //
-    this.expandMedicationIcon=page.locator("xpath=//button[@aria-label='expandRowIconParacetamol 500mg / Ibuprofen 200mg tablets']");
+    this.expandMedicationIcon=page.locator("xpath=//button[@aria-label='expandRowIconundefined']");
     this.dispenseButton = page.locator("xpath=button[data-testid='Dispense']")
     this.selectCheckBox=page.locator("xpath=//span[@data-testid='hideLabel']//input[@type='checkbox']")
    
@@ -226,10 +225,6 @@ this.createAndAdministerPrescriptionButton = page.locator('xpath=//button[@data-
   async clickOnProducedLink()
   {
     await this.producedLink.click()
-  }
-  async clickonCollectedLink()
-  {
-    await this.CollectedLink.click()
   }
 
 

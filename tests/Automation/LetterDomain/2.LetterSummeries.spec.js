@@ -116,7 +116,7 @@ test.describe("Database Comparison Book New App and Cancel", () => {
 
     await letterorSummeries.enterinputEndDate(jsonData.letterSummries[index].patletd_end_date);
     console.log("Entered letter end date.");
-await page.pause()
+
     await page.waitForTimeout(1000);
 
     await letterorSummeries.clickOnDraftbutton();
@@ -128,7 +128,7 @@ await page.pause()
     console.log("Clicked on Create Draft button.");
 
     await page.waitForTimeout(1000);
-await page.pause()
+
     await letterorSummeries.clickOnOkButton();
     console.log("Clicked on OK button after draft creation.");
 
@@ -152,7 +152,6 @@ await page.pause()
       console.log("\nLetters Comparison: Parameters from both JSON files do not match!\n");
     }
 
-     await page.pause()
     await letterorSummeries.clickSearchButton();
     console.log("Clicked search button to view created draft.");
 
@@ -171,7 +170,6 @@ await page.pause()
     await letterorSummeries.enterStatus(jsonData.letterSummries[index].patlet_status);
     console.log("Entered search Status.");
 
-    await page.pause()
     await letterorSummeries.clickSearchButton();
     console.log("Clicked search button again to apply filters.");
 
@@ -180,8 +178,11 @@ await page.pause()
     await page.getByLabel('expandRowIconundefined').click();
     console.log("Expanded letter row in results.");
 
-    await letterorSummeries.clickOnPdfIcon();
-    console.log("Clicked on Word format icon.");   
+    await letterorSummeries.clickOnWordFormatIcon();
+    console.log("Clicked on Word format icon.");
+
+    await letterorSummeries.clickOnHtmlIcon();
+    console.log("Clicked on HTML icon.");
 
     await letterorSummeries.clickOnEditHistoryIcon();
     console.log("Clicked on Edit History icon.");
@@ -198,7 +199,7 @@ await page.pause()
 
     await page.getByRole('button', { name: 'cancelIcon' }).click();
     console.log("Cancelled Send Email popup.");
- await page.pause()
+
     await letterorSummeries.clickOnDeleteRecordLink();
     console.log("Clicked on Delete Record link.");
 

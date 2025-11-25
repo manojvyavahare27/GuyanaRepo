@@ -94,8 +94,6 @@ test.describe("Database Comparison Add Edit Patient", () => {
     await homepage.clickOnAppointmentIcon();
     await patientsearch.clickonBackButton();
     await homepage.clickOnAppointmentIcon();
-     await homepage.clickOnDrawerHeader()
-    await homepage.clickOnAddappLink()
     await patientsearch.clickOnsettingbutton();
     await patientsearch.clickOncustomizableViewforPatientSearchOnAppointment();
     await patientsearch.clickOnResetToDefaultViewButton();
@@ -103,18 +101,17 @@ test.describe("Database Comparison Add Edit Patient", () => {
     await homepage.clickonSidebarHomeIcon();
     await homepage.clickOnAppointmentIcon();
 
-     await homepage.clickOnDrawerHeader()
-    await homepage.clickOnAddappLink()
     await patientsearch.clickOnSearchPatButton();
     await patientsearch.enterGivenName(
       jsonData.addPatient[index].pat_firstname
     );
     await patientsearch.enterFamilyName(jsonData.addPatient[index].pat_surname);
     await patientsearch.selectSex(jsonData.addPatient[index].pat_sex);
-    await patientsearch.enterHospitalRef(
-      jsonData.addPatient[index].pat_hospital_ref
-    );
+    // await patientsearch.enterHospitalRef(
+    //   jsonData.addPatient[index].pat_hospital_ref
+    // );
 
+ 
     await patientsearch.clickOnSearchPatButton();
     await patientsearch.clickOnSearchPatientLink();
     await page.waitForTimeout(5000);
@@ -122,7 +119,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
     await page.waitForTimeout(5000);
 
     const addReferralText = await page.getByRole("heading", { name: "Add a Referral" }).isVisible();
-
+    
     if (addReferralText) {
       //Add New Referral to Patient.
       await page.waitForTimeout(2500);
@@ -277,7 +274,9 @@ test.describe("Database Comparison Add Edit Patient", () => {
       await scheduleserviceapp.clickOnDateLink();
       await page.waitForTimeout(7000);
       await addeditpatientappointment.selectConsultant();
-      await addeditpatientappointment.selectAppointmentDuration(jsonData.addEditAppointments[index].rea_duration);
+      
+      // await addeditpatientappointment.selectAppointmentDuration(jsonData.addEditAppointments[index].rea_duration);
+       await addeditpatientappointment.selectAppointmentDuration();
       await addeditpatientappointment.clickOnRescheduleDate(jsonData.addEditAppointments[index].rea_edited_date);
       await addeditpatientappointment.enterRescheduleTime(jsonData.addEditAppointments[index].rea_edited_time);
       await addeditpatientappointment.selectResonforReviewAppointment(jsonData.addEditAppointments[index].rea_review_reason);
@@ -396,14 +395,13 @@ test.describe("Database Comparison Add Edit Patient", () => {
         );
       }
       //Edit Patient App.
-      //await page.pause()
       await scheduleserviceapp.clickOnDateLink();
       await page.waitForTimeout(8000);
       await addeditpatientappointment.selectAppointmentDuration(jsonData.addEditAppointments[index].rea_duration);
       await addeditpatientappointment.selectResonforReviewAppointment(jsonData.addEditAppointments[index].rea_review_reason);
       //await page.pause()
       await addeditpatientappointment.clickOnSaveButton();
-     // await page.locator("xpath=//div[contains(text(),'Ok')]").click();
+      // await page.locator("xpath=//div[contains(text(),'Ok')]").click()
       await expect(page.getByText("Appointment updated successfully")).toHaveText("Appointment updated successfully");
       await page.waitForTimeout(1000);
      

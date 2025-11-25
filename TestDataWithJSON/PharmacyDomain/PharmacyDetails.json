@@ -2,7 +2,7 @@
   "loginDetails": [
     {
       "username": "manoj.auto",
-      "password": "Manoj@2024"
+      "password": "Manoj@2025"
     },
     {
       "username": "thayne.auto",
@@ -23,12 +23,12 @@
   ],
   "addPatient": [
     {
-      "pat_hospital_ref": "PharmaLin017",
-      "pat_title": "B/O",
-      "pat_firstname": "PharmLinO",
-      "pat_surname": "Marathi",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_hospital_ref": "hospRegPt60",
+      "pat_title": "Mr",
+      "pat_firstname": "demoARW",
+      "pat_surname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
       "pat_occupation": "Trainer",
@@ -43,7 +43,7 @@
       "pat_currently_pregnant_yes": "No",
       "pat_currently_pregnant": 0,
       "pat_language": "English",
-      "pat_temp_address_start": 45968,
+      "pat_temp_address_start": 45969,
       "pat_country_of_birth": "India",
       "pat_gender_at_birth": "M",
       "pat_nationality": "Indian",
@@ -58,10 +58,10 @@
     {
       "pat_hospital_ref": "AutoHosp109",
       "pat_title": "B/O",
-      "pat_firstname": "PharmLinO",
-      "pat_surname": "Marathi",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_firstname": "demoARW",
+      "pat_surname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
       "pat_occupation": "Trainer",
@@ -89,16 +89,16 @@
   ],
   "patientIdentifier": [
     {
-      "pat_firstname": "PharmLinO",
-      "pat_lastname": "Marathi",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_firstname": "demoARW",
+      "pat_lastname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pid_value1": 8962845424,
       "pid_value2": "Ind009",
       "pat_country": "India",
       "pat_title": "B/O",
       "pat_middlename": "Martin",
-      "add_email": "PharmLinO.Marathi@Gmail.com"
+      "add_email": "demoARW.riomed@Gmail.com"
     }
   ],
   "tempAddress": [
@@ -309,7 +309,7 @@
       "pat_title": "B/O",
       "pat_firstname": "Andrew",
       "pat_surname": "Jones",
-      "pat_sex": "Male",
+      "pat_sex": "M",
       "pat_dob": "24/04/2023",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
@@ -339,7 +339,7 @@
     {
       "pat_firstname": "Andrew",
       "pat_lastname": "Jones",
-      "pat_sex": "Male",
+      "pat_sex": "M",
       "pat_dob": "24/04/2023",
       "pid_value1": 7794778477,
       "pid_value2": "SPInd001",
@@ -420,7 +420,7 @@
       "egp_gp_code": "GP0001",
       "egp_pct_code": "GPPCT0001",
       "egp_gmc_code": "GPGMC0001",
-      "egp_fullname": "ANUMBA"
+      "egp_fullname": "Vincent"
     }
   ],
   "SPgpAddress": [
@@ -440,13 +440,13 @@
   ],
   "patDetails": [
     {
-      "pat_hospital_ref": "PharmaLin017",
+      "pat_hospital_ref": "hospRegPt60",
       "pat_dod": "29/10/2023",
       "pat_tod": "00:11",
       "pat_dead_confirmation_status": "confirmed",
       "pat_death_notes": "Added For Testing",
-      "pat_firstname": "PharmLinO",
-      "pat_surname": "Marathi"
+      "pat_firstname": "demoARW",
+      "pat_surname": "riomed"
     }
   ],
   "patCauseOfDeath": [
@@ -493,13 +493,7 @@
       "meded_value_Adherent": "Adherent"
     },
     {
-      "pacr_que_name": "Abacavir 300mg tablets"
-    },
-    {
       "pacr_que_name": "Venlafaxine"
-    },
-    {
-      "pacr_que_name": "Paracetamol 500mg / Ibuprofen 200mg tablets"
     }
   ]
 }

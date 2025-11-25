@@ -5,32 +5,22 @@ import { createConnection } from 'mysql';
 let databaseConnection; // Variable to store the database connection instance
 
 const dbConfig = {
-	//below code is for Pre-release server
+	//  host: "10.0.0.72",
+    // user: "Manoj.vyavahare",
+    // password: "Welcome@123",
+    // port:3314,
+    // //database: "cellma4_api",
+    // database: "cellma4_loadtesting_9sep25",
+    // connectionLimit: 10
+
+	//Regression DB for 16
 	host: "10.0.0.16",
-    user: "cellma4_api_user",
+    user: "Manoj.vyavahare",
     password: "Welcome@123",
     port:3314,
     //database: "cellma4_api",
-    database: "cellma4_pre_release",
+    database: "cellma4_loadtesting_9sep25",
     connectionLimit: 10
-
-
-	//Active code for regression server
-// 	host: "10.0.0.16",
-//   user: "admin",
-//     password: "Welcome@123",
-//     port:3314,
-//     database: "cellma4_loadtesting_9sep25",
-//     connectionLimit: 10
-	
-	//Activate below code for Linux server execution.
-	// host: "10.0.0.38",
-    // user: "ManojV.C4",
-    // password: "Welcome@1234",
-    // port:3310,
-    // //database: "cellma4_api",
-    // database: "cellma4_api_14oct2025",
-    // connectionLimit: 10
 };
 
 async function openDatabaseConnection() {

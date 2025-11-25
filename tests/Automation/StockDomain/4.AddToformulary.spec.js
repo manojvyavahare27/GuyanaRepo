@@ -65,24 +65,25 @@ test.describe("Database Comparison Add New Referral", () => {
     await page.waitForTimeout(2000);   
 
    // Stock items filters
-   //await page.pause()
+   
    await stockItemsFliters.selectLocation('Default Pharmacy')
    await stockItemsFliters.selectCategory(jsonData.EditStockItem[0].stock_category)
-   await stockItemsFliters.selectFilter('All Stock')
-   await stockItemsFliters.selectExpiringDate('Before Expiry Date')   
-   await stockItemsFliters.selectFormulary('Automation formulary')
+   await stockItemsFliters.selectFilter()
+   await stockItemsFliters.selectExpiringDate()   
+  // await stockItemsFliters.selectFormulary()
    await stockItemsFliters.enterItemName('Allopurinol 100mg tablets')
    await stockItemsFliters.clickSearchButton()
-   //await page.pause()
-    await stockItemsFliters.selectFormulary('Testing formulary')
+   
+   // await stockItemsFliters.selectFormulary('Testing formulary')
     await stockItemsFliters.clearItemName()
    await stockItemsFliters.clickSearchButton()
 
    await stockItemsFliters.enterItemName(jsonData.EditStockItem[0].stock_name)
    await stockItemsFliters.clickSearchButton()
+  /// await page.pause()
    await page.waitForTimeout(1000)
-   await addStockItems.clickOnExpandsDefaultPharmacy()
-  // await page.pause()
+   await addStockItems.clickOnExpandsDefaultPharmacy() 
+   //await addStockItems.clickOnExpandsDefaultPharmacy()  
    await stockallLoc.clickOnAddFormularyLink()
    await page.waitForTimeout(500)
    await addFormulary.clickOnClosePopup()

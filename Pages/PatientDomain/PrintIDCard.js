@@ -6,7 +6,6 @@ class PrintIDCard
         this.Icon_PhotocameraIcon=page.getByTestId('PhotoCameraIcon')
         this.btn_Upload=page.getByTestId('Upload')
         this.btn_Save=page.getByTestId('Save')
-        
         this.link_PrintIdCard=page.getByTestId('Print Id Card')
     }
     async clickOnLinkPrintIdCard()

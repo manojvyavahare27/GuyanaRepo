@@ -2,7 +2,15 @@
   "loginDetails": [
     {
       "username": "manoj.auto",
+      "password": "Manoj@2025"
+    },
+    {
+      "username": "cellma.user",
       "password": "Manoj@2024"
+    },
+    {
+      "username": "manoj.auto",
+      "password": "Manoj@2025"
     },
     {
       "username": "thayne.auto",
@@ -10,7 +18,7 @@
     },
     {
       "username": "prerelease.auto",
-      "password": "Manoj@2025"
+      "password": "Manoj@2023"
     },
     {
       "username": "manoj.auto",
@@ -23,12 +31,12 @@
   ],
   "addPatient": [
     {
-      "pat_hospital_ref": "HospLin22",
+      "pat_hospital_ref": "hosAPP0116",
       "pat_title": "Mr",
-      "pat_firstname": "LinuxPatAU",
-      "pat_surname": "Riomed",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_firstname": "RegClinicA",
+      "pat_surname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
       "pat_occupation": "Trainer",
@@ -43,7 +51,7 @@
       "pat_currently_pregnant_yes": "No",
       "pat_currently_pregnant": 0,
       "pat_language": "English",
-      "pat_temp_address_start": 45984,
+      "pat_temp_address_start": 45985,
       "pat_country_of_birth": "India",
       "pat_gender_at_birth": "M",
       "pat_nationality": "Indian",
@@ -76,7 +84,7 @@
       "pat_currently_pregnant_yes": "No",
       "pat_currently_pregnant": 0,
       "pat_language": "English",
-      "pat_temp_address_start": 45984,
+      "pat_temp_address_start": 45985,
       "pat_country_of_birth": "India",
       "pat_gender_at_birth": "M",
       "pat_nationality": "Indian",
@@ -87,88 +95,35 @@
       "pat_disability_note": "For Testing"
     }
   ],
-  "editPatient": [
+  "pipFemale": [
     {
-      "pat_hospital_ref": "AutoHosp109",
-      "pat_title": "B/O",
-      "pat_firstname": "LinuxPatAU",
-      "pat_surname": "Riomed",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
-      "pat_marital_status": "Single",
-      "pat_ethnicity_text": "Indian",
-      "pat_occupation": "Trainer",
-      "pat_notes": "Added for Testing",
-      "pat_type": "Regular",
-      "pat_maiden_name": "Pune",
-      "pat_blood_group": "B+",
-      "pat_religion": "Hindu",
-      "pat_middlename": "Martin",
-      "pat_registered_disabled": 0,
-      "pat_currently_pregnant": 0,
-      "pat_currently_pregnant_yes": "Yes",
-      "pat_language": "English",
-      "pat_temp_address_start": "01-04-2023",
-      "pat_country_of_birth": "India",
-      "pat_gender_at_birth": "M",
-      "pat_nationality": "Indian",
-      "pat_prisoner_yes": "No",
-      "pat_prisoner": 0,
-      "pat_county_of_birth": "Maharashtra",
-      "pat_town_of_birth": "Pune",
-      "pat_sexual_orientation_eli_text": "Heterosexuality",
-      "pat_disability_note": "For Testing"
-    }
-  ],
-  "patientIdentifier": [
-    {
-      "pat_firstname": "LinuxPatAU",
-      "pat_lastname": "Riomed",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
-      "pid_value1": 8962845424,
-      "pid_value2": "Ind009",
-      "pat_country": "India",
-      "pat_title": "B/O",
-      "pat_middlename": "Martin",
-      "add_email": "LinuxPatAU_Riomed@Gmail.com"
-    }
-  ],
-  "tempAddress": [
-    {
-      "add_address1": "Flat no 1101",
-      "add_address2": "Mumbai",
-      "add_address3": "SaiCapital",
-      "add_address4": "Maharashtra",
-      "add_address5": "4110 11",
-      "add_address6": "United Kingdom of Great Britain and Northern Ireland",
-      "add_phone": 8888888800,
-      "add_mobile": 9762713710,
-      "add_email": "Mumbai_SaiCapital@gmail.com",
-      "add_fax": 8181808080,
-      "add_work_phone": 666999,
-      "add_iso_country_code": 91,
-      "add_icao_country_code": 54215,
-      "__EMPTY": 91,
-      "add_notes": "Added temp address for testing"
-    }
-  ],
-  "permanentAddress": [
-    {
-      "add_address1": "Flat no 1101",
-      "add_address2": "Mumbai",
-      "add_address3": "SaiCapital",
-      "add_address4": "Maharashtra",
-      "add_address5": "4110 11",
-      "add_address6": "United Kingdom of Great Britain and Northern Ireland",
-      "add_phone": 7700770077,
-      "add_mobile": 9762713710,
-      "add_email": "Mumbai_SaiCapital@gmail.com",
-      "add_fax": 112233,
-      "add_work_phone": 9890098900,
-      "add_iso_country_code": 91,
-      "add_icao_country_code": 542152,
-      "add_notes": "Added Permanent Address Notes"
+      "pip_title": "Mrs",
+      "pip_firstname": "Pallavi",
+      "pip_surname": "riomed",
+      "pip_relationship": "Friend",
+      "pip_next_of_kin": 1,
+      "pip_next_of_kin_Yes": "Yes",
+      "pip_next_of_kin_1": 0,
+      "pip_notes": "Added for testing",
+      "pip_family_aware_illness_yes": "Yes",
+      "pip_family_aware_illness": 1,
+      "pip_family_aware_illness_yes_1": "Yes",
+      "pip_middlename": "Middle",
+      "pip_gender": "M",
+      "pip_dob": "01/01/1995",
+      "pip_identifier_type": "Aadhar Card",
+      "pip_identifier_number": "989798979897",
+      "pip_chiNumber": "123456",
+      "pip_send_txt_email_yes": "Yes",
+      "pip_send_txt_email": 1,
+      "pip_send_txt_email_yes_1": "Yes",
+      "pip_ethnicity_text": "Indian",
+      "pip_ethnicity_id": 6882,
+      "pip_receive_pat_appt_letter": 0,
+      "pip_receive_pat_appt_letter_no": "No",
+      "pip_receive_patient_letter": 0,
+      "pip_receive_patient_letter_no": "No",
+      "pip_professional_title": "Prof"
     }
   ],
   "pip": [
@@ -202,35 +157,121 @@
       "pip_professional_title": "Prof"
     }
   ],
-  "pipFemale": [
+  "Alerts": [
     {
-      "pip_title": "Mrs",
-      "pip_firstname": "Pallavi",
-      "pip_surname": "riomed",
-      "pip_relationship": "Friend",
-      "pip_next_of_kin": 1,
-      "pip_next_of_kin_Yes": "Yes",
-      "pip_next_of_kin_1": 0,
-      "pip_notes": "Added for testing",
-      "pip_family_aware_illness_yes": "Yes",
-      "pip_family_aware_illness": 1,
-      "pip_family_aware_illness_yes_1": "Yes",
-      "pip_middlename": "Middle",
-      "pip_gender": "M",
-      "pip_dob": "01/01/1995",
-      "pip_identifier_type": "Aadhar Card",
-      "pip_identifier_number": "989798979897",
-      "pip_chiNumber": "123456",
-      "pip_send_txt_email_yes": "Yes",
-      "pip_send_txt_email": 1,
-      "pip_send_txt_email_yes_1": "Yes",
-      "pip_ethnicity_text": "Indian",
-      "pip_ethnicity_id": 6882,
-      "pip_receive_pat_appt_letter": 0,
-      "pip_receive_pat_appt_letter_no": "No",
-      "pip_receive_patient_letter": 0,
-      "pip_receive_patient_letter_no": "No",
-      "pip_professional_title": "Prof"
+      "pat_hospital_ref": "hrefdemo001",
+      "pat_title": "Mr",
+      "pat_firstname": "demoj",
+      "pat_surname": "riomed",
+      "pat_sex": "Male",
+      "pat_dob": 36526,
+      "pat_marital_status": "Single",
+      "pat_ethnicity_text": "Indian",
+      "pat_occupation": "Trainer",
+      "pat_notes": "Added for Testing",
+      "pat_type": "Regular",
+      "pat_maiden_name": "Pune",
+      "pat_blood_group": "B+",
+      "pat_religion": "Hindu",
+      "pat_middlename": "Martin",
+      "pat_registered_disabled_yes": "No",
+      "pat_registered_disabled": 0,
+      "pat_currently_pregnant_yes": "No",
+      "pat_currently_pregnant": 0,
+      "pat_language": "English",
+      "pat_temp_address_start": "01-04-2023",
+      "pat_country_of_birth": "India",
+      "pat_gender_at_birth": "M",
+      "pat_nationality": "Indian",
+      "pat_prisoner_yes": "No",
+      "pat_county_of_birth": "Maharashtra",
+      "pat_town_of_birth": "Pune",
+      "pat_sexual_orientation_eli_text": "Heterosexuality",
+      "pat_disability_note": "For Testing"
+    }
+  ],
+  "editPatient": [
+    {
+      "pat_hospital_ref": "AutoHosp109",
+      "pat_title": "B/O",
+      "pat_firstname": "RegClinicA",
+      "pat_surname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
+      "pat_marital_status": "Single",
+      "pat_ethnicity_text": "Indian",
+      "pat_occupation": "Trainer",
+      "pat_notes": "Added for Testing",
+      "pat_type": "Regular",
+      "pat_maiden_name": "Pune",
+      "pat_blood_group": "B+",
+      "pat_religion": "Hindu",
+      "pat_middlename": "Martin",
+      "pat_registered_disabled": 0,
+      "pat_currently_pregnant": 0,
+      "pat_currently_pregnant_yes": "Yes",
+      "pat_language": "English",
+      "pat_temp_address_start": "01-04-2023",
+      "pat_country_of_birth": "India",
+      "pat_gender_at_birth": "M",
+      "pat_nationality": "Indian",
+      "pat_prisoner_yes": "No",
+      "pat_prisoner": 0,
+      "pat_county_of_birth": "Maharashtra",
+      "pat_town_of_birth": "Pune",
+      "pat_sexual_orientation_eli_text": "Heterosexuality",
+      "pat_disability_note": "For Testing"
+    }
+  ],
+  "patientIdentifier": [
+    {
+      "pat_firstname": "RegClinicA",
+      "pat_lastname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
+      "pid_value1": 8962845424,
+      "pid_value2": "Ind009",
+      "pat_country": "India",
+      "pat_title": "B/O",
+      "pat_middlename": "Martin",
+      "add_email": "RegClinicA.riomed@Gmail.com"
+    }
+  ],
+  "tempAddress": [
+    {
+      "add_address1": "Flat no 1101",
+      "add_address2": "Mumbai",
+      "add_address3": "SaiCapital",
+      "add_address4": "Maharashtra",
+      "add_address5": "4110 11",
+      "add_address6": "United Kingdom of Great Britain and Northern Ireland",
+      "add_phone": 8888888800,
+      "add_mobile": 9762713710,
+      "add_email": "Mumbai.SaiCapital@gmail.com",
+      "add_fax": 8181808080,
+      "add_work_phone": 666999,
+      "add_iso_country_code": 91,
+      "add_icao_country_code": 54215,
+      "__EMPTY": 91,
+      "add_notes": "Added temp address for testing"
+    }
+  ],
+  "permanentAddress": [
+    {
+      "add_address1": "Flat no 1101",
+      "add_address2": "Mumbai",
+      "add_address3": "SaiCapital",
+      "add_address4": "Maharashtra",
+      "add_address5": "4110 11",
+      "add_address6": "United Kingdom of Great Britain and Northern Ireland",
+      "add_phone": 7700770077,
+      "add_mobile": 9762713710,
+      "add_email": "Mumbai.SaiCapital@gmail.com",
+      "add_fax": 112233,
+      "add_work_phone": 9890098900,
+      "add_iso_country_code": 91,
+      "add_icao_country_code": 542152,
+      "add_notes": "Added Permanent Address Notes"
     }
   ],
   "pipAddress": [
@@ -373,7 +414,7 @@
       "pat_title": "B/O",
       "pat_firstname": "Sakal",
       "pat_surname": "Riomed",
-      "pat_sex": "Male",
+      "pat_sex": "M",
       "pat_dob": "22/09/2023",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
@@ -403,7 +444,7 @@
     {
       "pat_firstname": "Sakal",
       "pat_lastname": "Riomed",
-      "pat_sex": "Male",
+      "pat_sex": "M",
       "pat_dob": "22/09/2023",
       "pid_value1": 7794778477,
       "pid_value2": "SPInd001",
@@ -484,7 +525,7 @@
       "egp_gp_code": "GP0001",
       "egp_pct_code": "GPPCT0001",
       "egp_gmc_code": "GPGMC0001",
-      "egp_fullname": "ABADI"
+      "egp_fullname": "vincent"
     }
   ],
   "SPgpAddress": [
@@ -504,13 +545,13 @@
   ],
   "patDetails": [
     {
-      "pat_hospital_ref": "HospLin22",
+      "pat_hospital_ref": "hosAPP0116",
       "pat_dod": "29/10/2023",
       "pat_tod": "00:11",
       "pat_dead_confirmation_status": "confirmed",
       "pat_death_notes": "Added For Testing",
-      "pat_firstname": "LinuxPatAU",
-      "pat_surname": "Riomed"
+      "pat_firstname": "RegClinicA",
+      "pat_surname": "riomed"
     }
   ],
   "patCauseOfDeath": [

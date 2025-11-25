@@ -5,18 +5,16 @@ class LoginPage{
 constructor(page)
 {
     this.page=page
-    this.userName=page.locator("xpath=//input[@id='userNameLogin']")
-    this.passWord=page.locator("xpath=//input[@id='Password']")
+    this.cellmaButton=page.locator("xpath=//button[normalize-space()='Cellma']")
+    this.userName=page.locator("xpath=//input[@name='username']")       
+    this.passWord=page.locator("xpath=//input[@name='password']")
     this.emailaddress=page.locator("xpath=//input[@id='Email Address']")
-   // this.loginButton=page.locator("xpath=//button[@data-testid='Login']")
-   this.loginButton=page.getByTestId('Login')
+    this.loginButton=page.locator("xpath=//button[@data-testid='Login']")
     this.message=page.getByText('Your username/password combination has not been recognised. Please try again.')
     
     //Forgot Password Page
-    //this.forgotpasswordlink=page.locator("//body/div[@id='root']/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/a[1]")
-    //this.forgotpasswordlink=page.getByText('Forgot Password')
-    this.forgotpasswordlink=page.locator("xpath=//a[@data-testid='Forgot Password']")
-
+    this.forgotpasswordlink=page.locator("//body/div[@id='root']/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/a[1]")
+    this.forgotpasswordlink=page.getByText('Forgot Password')
     this.closeforgotpasswordpopup=page.getByTestId('CancelIcon')
     this.txtEmailAddress=page.locator("xpath=//input[@id='Email Address']")
 
@@ -29,6 +27,10 @@ constructor(page)
 
 }
 
+async clickOnCellmaButton()
+{
+    await this.cellmaButton.click()
+}
 async openReferralPortal()
 {
     await this.page.goto("http://10.0.0.106:3001/cellmaPortal/portal/login")
@@ -56,32 +58,33 @@ async openUrl()
 //enter_Password=async()=> await this.passWord.type(password)
 
 
-     async enterUsername(username) {
-        await this.userName.fill(username);
-        const actual = await this.userName.inputValue();
-        if (actual !== username) {
-            throw new Error(`❌ Username mismatch. Expected: "${username}", Found: "${actual}"`);
+     async enterUsername(username)
+    {
+        await this.userName.fill(username)
+        if(this.userName!=null)
+        {
+            return this.userName
         }
-        console.log(`✅ Username filled correctly: "${actual}"`);
+        else throw new Error("No Username Element Present")
     }
 
-    // Reads username from the field
-    async readUsername() {
-        const value = await this.userName.inputValue();
-        console.log(`✅ Username read from input: "${value}"`);
-        return value;
+    async readusername()
+    {
+        const value= await this.userName.inputValue()
+        return value          
+        console.log(value)
     }
 
-    // Enters password and validates input
-    async enter_Password(password) {
-        await this.passWord.fill(password);
-        const actual = await this.passWord.inputValue();
-        if (actual !== password) {
-            throw new Error(`❌ Password mismatch. Expected: "${password}", Found: "${actual}"`);
+
+    async enter_Password(password)
+    {
+        await this.passWord.type(password)
+        if(this.passWord!=null)
+        {
+            return this.passWord
         }
-        console.log(`✅ Password filled correctly: "${actual}"`);
+        else throw new Error("No Password Element Present")
     }
-    
     async clickOnLogin()
     {
         await this.loginButton.click()

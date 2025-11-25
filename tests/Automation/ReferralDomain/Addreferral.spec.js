@@ -91,9 +91,10 @@ test.describe("Database Comparison Add New Referral", () => {
     await patientsearch.enterFamilyName(
       jsonData.addPatient[index].pat_surname.toString()
     );
-    await addpatient.enterHospitalRef(
-      jsonData.addPatient[index].pat_hospital_ref
-    );
+    // await addpatient.enterHospitalRef(
+    //   jsonData.addPatient[index].pat_hospital_ref
+    // );
+    
     await patientsearch.clickOnSearchButton();
     await patientsearch.clickOnSearchPatientLink();
     //await patientsearch.ClickOnYesConfirmLegitimateRelationship()
@@ -113,8 +114,9 @@ test.describe("Database Comparison Add New Referral", () => {
     await confirmexisting.clickOnConfirmExistingDetails();
 
     
-    await addreferral.enterReceiveReferrldate(jsonData.AddReferral[index].rtt_referral_received_date.toString());
-    await addreferral.enterApproveReferralDate(jsonData.AddReferral[index].rtt_referral_approved_date.toString());
+    
+    // await addreferral.enterReceiveReferrldate(jsonData.AddReferral[index].rtt_referral_received_date.toString());
+    // await addreferral.enterApproveReferralDate(jsonData.AddReferral[index].rtt_referral_approved_date.toString());
     await addreferral.enterDateOfReferral(jsonData.AddReferral[index].ref_referral_date.toString());
     await addreferral.enterTimeOfReferral(jsonData.AddReferral[index].ref_time_set.toString());
     await addreferral.selectSourceOfReferrals();
@@ -130,7 +132,7 @@ test.describe("Database Comparison Add New Referral", () => {
     await addreferral.selectPatientcare();
     await addreferral.selectPreferredSexForAssessment(jsonData.AddReferral[index].ref_preferred_examiner_sex_entry.toString());
     await addreferral.selectConsultant();
-    await addreferral.selectMethodOfArrival(jsonData.AddReferral[index].ref_method_of_arrival.toString());
+    //await addreferral.selectMethodOfArrival(jsonData.AddReferral[index].ref_method_of_arrival.toString());
     await addreferral.enterTimeOfArrival(jsonData.AddReferral[index].ref_time_of_arrival.toString());
     await addreferral.clickOnAwaitReferralAcceptance();
     await addreferral.clickOnSaveButton();

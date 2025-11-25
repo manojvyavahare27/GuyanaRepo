@@ -9,8 +9,6 @@ const convertExcelToJson = require('../../../config/global-setupOptimized');
 const connectToDatabase = require("../../../manoj").default;
 const { executeQuery } = require("../../../databaseWriteFile"); // Update the path accordingly
 import compareJsons from "../../../compareFileOrJson";
-
-
 import { test, expect, Page, chromium } from '@playwright/test';
 import logger from '../../../Pages/BaseClasses/logger'
 import LoginPage from '../../../Pages/BaseClasses/LoginPage';
@@ -51,11 +49,9 @@ test.describe("Patient Domain Db Comparison", () => {
     const excelFilePath = process.env.EXCEL_FILE_PATH || "./ExcelFiles/PatientDomain.xlsx";
     const jsonFilePath = "./TestDataWithJSON/PatientDomain/PatientDetails.json";
     const conversionSuccess = await convertExcelToJson(excelFilePath, jsonFilePath);
-
     if (!conversionSuccess) {
       throw new Error("Excel to JSON conversion failed.");
     }
-
     jsonData = require("../../../TestDataWithJSON/PatientDomain/PatientDetails.json");
     console.log("Excel converted and JSON loaded successfully.");
   });
@@ -93,8 +89,7 @@ test.describe("Patient Domain Db Comparison", () => {
         await loginpage.enter_Password(jsonData.loginDetails[0].password);
         await page.waitForTimeout(2000);
         await loginpage.clickOnLogin();
-        
-       
+         //await page.pause()
         //logger.info("Clicked on Login button successfully");
         await homepage.clickonSidebarHomeIcon()
         await homepage.clickOnPatientIcon()
@@ -103,6 +98,7 @@ test.describe("Patient Domain Db Comparison", () => {
         await patientsearch.enterFamilyName(jsonData.addPatient[index].pat_surname.toString());
         await patientsearch.clickOnSearchButton()
         await page.waitForTimeout(2500)
+
         await patientsearch.clickOnSearchPatientLink()
         await page.waitForTimeout(2500)
         // await patientsearch.ClickOnNoConfirmLegitimateRelationship()
@@ -110,21 +106,23 @@ test.describe("Patient Domain Db Comparison", () => {
         // await patientsearch.ClickOnYesConfirmLegitimateRelationship()
         await patientsearch.clickOnBackbuttonOnPatientSearch()
         await page.waitForTimeout(3000)
-        //await confirmexisting.clickOnConfirmExistingDetails()
         
+        //await confirmexisting.clickOnConfirmExistingDetails()
+
         await topbluebar.clickOnBannerButtonKeyboardArrow()
         await page.waitForTimeout(2000)
+
         await topbluebar.ClickOnViewAllContactDetails()
-       
+
         //Click On Links
         // await demogrphics.ClickOnLinkLinks()
         // await demogrphics.ClickOnLinkDetails()
         // await demogrphics.ClickOnCloseAllPopup()
 
-        await demogrphics.ClickOnLinkLinks()
-        await demogrphics.ClickOnLinkPatientIdentifier()
-        await demogrphics.ClickOnCloseAllPopup()
-        //await page.pause()
+        // await demogrphics.ClickOnLinkLinks()
+        // await demogrphics.ClickOnLinkPatientIdentifier()
+        // await demogrphics.ClickOnCloseAllPopup()
+
         // await demogrphics.ClickOnLinkLinks()
         // await demogrphics.ClickOnLinkPIP()
         // await demogrphics.ClickOnCloseAllPopup()
@@ -136,22 +134,20 @@ test.describe("Patient Domain Db Comparison", () => {
         // await demogrphics.ClickOnLinkLinks()
         // await demogrphics.ClickOnLinkSummary()
         // await demogrphics.ClickOnCloseAllPopup()
-        
+
         await demogrphics.ClickOnLinkLinks()
         await demogrphics.ClickOnLinkWorkList()
         await demogrphics.ClickOnCloseAllPopup()
 
         await demogrphics.ClickOnLinkLinks()
         await demogrphics.ClickOnLinkTest()
-        await demogrphics.SelectDropdownTestPatient()
+        await demogrphics.ClickOnCloseAllPopup()
         //await expect(page.getByText('Successfully marked patient as test patient')).toHaveText('Successfully marked patient as test patient')
 
-        //await page.pause()
         await topbluebar.clickOnBannerButtonKeyboardArrow()
         await topbluebar.ClickOnViewAllContactDetails()
 
-      
-  //await page.pause()
+
         //Expands Patient Details on demographics page
         await demogrphics.ClickOnExpandsPatientInformation()
         //await demogrphics.ClickOnExpandsPatientInformation()
@@ -164,12 +160,12 @@ test.describe("Patient Domain Db Comparison", () => {
         await demogrphics.ClickOnExpandsPatientGP()
         await demogrphics.ClickOnExpandsPatientGP()
 
-        
+        //await page.pause()
         await demogrphics.SelectRadioButtonForConsentForPhotographcsNo()
         await demogrphics.SelectRadioButtonForConsentForPhotographcsYes()
         await demogrphics.ClickSaveButtonForConsentForPhotographcs()
 
-       
+
         await topbluebar.clickOnTopBlueBar()
 
         await page.waitForTimeout(3000)
@@ -177,11 +173,10 @@ test.describe("Patient Domain Db Comparison", () => {
         await editpatient.clickOnPatientAddress()
         await editpatient.clickOnPatientDetails()
 
-       
         // await expect(page.getByText('Sex required')).toHaveText('Sex required')
         // await expect(page.getByText('Ethnicity required')).toHaveText('Ethnicity required')
         // await expect(page.getByText('Religion required')).toHaveText('Religion required')
-       
+        // await page.pause()
         await editpatient.selectSexualOrientation(jsonData.editPatient[index].pat_sexual_orientation_eli_text)
         //await editpatient.selectCurrentlyPrgenant(jsonData.editPatient[index].pat_currently_pregnant_yes)
         //await editpatient.selectSexDropdown()
@@ -194,22 +189,20 @@ test.describe("Patient Domain Db Comparison", () => {
         await expect(page.getByText('Patient updated successfully')).toHaveText('Patient updated successfully')
         await editpatient.clickOnPatientAddress()
         await editpatient.clickOnSaveForPatientDetails()
-          
         // await expect(page.getByText('Patient address added successfully')).toHaveText('Patient address added successfully')
         await editpatient.clickOnPatientPIP()
-     
-       // await editpatient.enterIntoSearchGP('Wednesday')
+        //await page.pause()
+        //await editpatient.enterIntoSearchGP('Wednesday')
 
         await editpatient.clickOnViewPIPLink()
 
         await page.waitForTimeout(2000)
-       
         await editpatient.clickOnClosePIPAddressPopup()
         await editpatient.clickOnExportListbtn()
         //await editpatient.clickOnViewforInterestedPartyList()
         await page.waitForTimeout(2000)
         // await editpatient.clickOnAddressPIP()
-  
+        //await page.pause()
         await editpatient.clickOnExportToCSVLink()
         await page.waitForTimeout(1000)
         await editpatient.clickOnExportToExcelLink()
@@ -218,10 +211,8 @@ test.describe("Patient Domain Db Comparison", () => {
         await page.waitForTimeout(1000)
         await editpatient.clickOnExportToPDFLink()
         await page.waitForTimeout(1000)
-       
-        await editpatient.clickOnCloseInterestedPartyPopup()
         
-       
+        await editpatient.clickOnCloseInterestedPartyPopup()
         await editpatient.clickOnPatientGP()
         await editpatient.clickOnPrintIdCard()
 
@@ -405,7 +396,9 @@ test.describe("Patient Domain Db Comparison", () => {
           );
         }
 
-        // await menu.clickOnLogout();      
+        // await menu.clickOnLogout();
+
+        //await page.pause()
 
       }
     }); // <-- ✅ This closes test('Pharmacy Register New Patient')

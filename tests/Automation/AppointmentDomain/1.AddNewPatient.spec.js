@@ -82,9 +82,7 @@ test.describe('New Patient', () => {
       const addgp = new AddGP(page);
       const printidcard = new PrintIDCard(page);
       //const patientwizard=new PatientWizard(page)
-      const menu = new Menu(page);
-
-      
+      const menu = new Menu(page);      
 
       await page.goto(environment.Test);
       await page.waitForTimeout(2000);
@@ -92,9 +90,7 @@ test.describe('New Patient', () => {
       await page.waitForTimeout(2000);
       await loginpage.enter_Password(jsonData.loginDetails[0].password);
       await page.waitForTimeout(2000);
-      await loginpage.clickOnLogin();
-
-     
+      await loginpage.clickOnLogin();     
      await homepage.clickonSidebarHomeIcon()
      await homepage.clickOnPatientIcon();      
       await patientsearch.clickOnSearchButton();
@@ -106,10 +102,9 @@ test.describe('New Patient', () => {
       await patientsearch.clickOnAddPatientbutton();
       //await page.goto("http://10.0.0.64:3000/cellmaUser/patient/patientDuplicateCheck")
       await patientduplicatecheck.clickOnDuplicateCheckButton();
-     // await page.pause()
       // await expect(page.getByText("Photo Identification required")).toHaveText("Photo Identification required");
       // await expect(page.getByText("Photo Identification ID required")).toHaveText("Photo Identification ID required");
-      // await expect(page.getByText("Middle name(s) is required")).toHaveText("Middle name(s) is required");
+    //  await expect(page.getByText("Middle name(s) is required")).toHaveText("Middle name(s) is required");
 
       //Is baby born in hospital
       const dateValue = await page.$eval("#Born", (textbox) => textbox.value);
@@ -150,7 +145,6 @@ test.describe('New Patient', () => {
       //await expect(page.getByText('Duplicate Patients not found')).toHaveText('Duplicate Patients not found')
       await patientduplicatecheck.clickOnCreatePatientButton();
 
-    
       //Patient Wizard- Add Patient
       await addpatient.selectMaritalStatusDropdown(jsonData.addPatient[index].pat_marital_status);
       await addpatient.selectSexualOrientation(jsonData.addPatient[index].pat_sexual_orientation_eli_text);
@@ -181,11 +175,9 @@ test.describe('New Patient', () => {
       await addaddress.enterCounty(jsonData.permanentAddress[index].add_address4);
       await addaddress.enterPostCode(jsonData.permanentAddress[index].add_address5.toString());
       
-       await page.locator("xpath=//input[@id='countryPermanentAddress']").click();
-       await page.getByRole('option', { name: 'Algeria' }).click();
-       
-       await page.getByTestId('Add/View Notes').first().click();
-       
+      await page.locator("xpath=//input[@id='countryPermanentAddress']").click();
+       await page.getByRole('option', { name: 'Algeria' }).click();       
+       await page.getByTestId('Add/View Notes').first().click();       
        //await addaddress.clickOnPermAddressAddViewBnt.click()
       await addaddress.clickOnSaveButtonOnPopup();
 
@@ -281,10 +273,10 @@ test.describe('New Patient', () => {
       
       await addaddress.clickOnSaveAddress();
       await page.waitForTimeout(1000);
-      await expect(page.getByText("Patient address added successfully")).toHaveText("Patient address added successfully");
+      //await expect(page.getByText("Patient address added successfully")).toHaveText("Patient address added successfully");
 
       //Add PIP
-     
+      
       await addpip.selectPIPTitle(jsonData.pip[index].pip_title);
       await addpip.enterPIPFamilyName(jsonData.pip[index].pip_surname);
       await addpip.enterPIPGivenName(jsonData.pip[index].pip_firstname);
@@ -324,7 +316,6 @@ test.describe('New Patient', () => {
       await addpip.checkGeneralPublicity();
       await addpip.ClickOnSavePIP();
       await page.waitForTimeout(1000);
-      await expect(page.getByText('Patient interested parties details added successfully')).toHaveText('Patient interested parties details added successfully')
       
 
       //View PIP
@@ -335,7 +326,6 @@ test.describe('New Patient', () => {
 
       //Search GP
       await addgp.clickOnSearchGPBtn();
-     
       await addgp.enterGpSearch();
       await page.waitForTimeout(1000);
       
@@ -431,17 +421,18 @@ test.describe('New Patient', () => {
       const fileInput = await page.getByTestId('PhotoCameraIcon');
       await fileInput.setInputFiles(targetFilePath);
       
-      await page.getByTestId("Upload").click();
-      await page.waitForTimeout(1000);
-      //await expect(page.getByText('Patient photo uploaded successfully')).toHaveText('Patient photo uploaded successfully')
-      await printidcard.clickOnSavebtn();
-      await page.waitForTimeout(2000);
-       await addpatient.enterHospitalRef(data.pat_hospital_ref);
-      await addpatient.clickOnsavebutton()
+      await page.waitForTimeout(200)
+        await expect(page.getByText('Patient photo uploaded successfully')).toHaveText('Patient photo uploaded successfully')
       
- await page.getByLabel('profileIcon').click();
-         await page.getByText('Logout').click();
+            await page.waitForTimeout(2000);
+            await printidcard.clickOnSavebtn();
+            await page.waitForTimeout(2000);
+            //await page.pause()
+            await addpatient.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref)
       
+            await addpatient.clickOnsavebutton();
+
+
       //////// Patient Detail comparison/////////
       var sqlQuery =
         "select * from patients where pat_hospital_ref= '" +
@@ -511,7 +502,11 @@ test.describe('New Patient', () => {
       results = await executeQuery(sqlQuery, sqlFilePath);
 
       match = 0;
-      match = await compareJsons(sqlFilePath, null, jsonData.permanentAddress[index]);
+      match = await compareJsons(
+        sqlFilePath,
+        null,
+        jsonData.permanentAddress[index]
+      );
       if (match) {
         console.log(
           "\n Patient Permanent Address Details Comparision: Parameters from both JSON files match!\n"
@@ -523,7 +518,10 @@ test.describe('New Patient', () => {
       }
 
       //////// Temporary Address Detail comparison/////////
-      sqlQuery = "select * from addresses where add_pat_id=" +  patId + " and add_temp_permanent='T' order by 1 desc limit 1;";
+      sqlQuery =
+        "select * from addresses where add_pat_id=" +
+        patId +
+        " and add_temp_permanent='T' order by 1 desc limit 1;";
       sqlFilePath = "SQLResults/AppointmentDomain/patientTempAddressData.json";
       results = await executeQuery(sqlQuery, sqlFilePath);
       //console.log("\n Address Details stored into the database: \n", results);

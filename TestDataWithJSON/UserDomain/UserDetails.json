@@ -2,7 +2,7 @@
   "loginDetails": [
     {
       "username": "manoj.auto",
-      "password": "Manoj@2024"
+      "password": "Manoj@2025"
     },
     {
       "username": "prerelease.auto",
@@ -15,22 +15,22 @@
   ],
   "addListItem": [
     {
-      "eli_text": "LinuxAH",
+      "eli_text": "MahaE",
       "eli_numeric_value": "1",
-      "eli_text_other_lang": "LinuxAH",
-      "eli_code": "ADLILC.8872",
+      "eli_text_other_lang": "MahaE",
+      "eli_code": "ADLILC.53192",
       "eli_code_type": "local",
       "eli_code_text": "Rio15"
     }
   ],
   "createUser": [
     {
-      "use_increment": 2718,
-      "use_username": "Test.2718User",
+      "use_increment": 128,
+      "use_username": "Test.128User",
       "use_firstname": "Auto",
-      "use_password": "Manoj@2024",
+      "use_password": "Manoj@2025",
       "use_surname": "Riomedtest",
-      "use_email": "thayne.sampson2718@riomed.com",
+      "use_email": "thayne.sampson128@riomed.com",
       "use_expires": "30/06/2035",
       "use_title": "Mr",
       "use_profession": "Consultant",
@@ -69,7 +69,7 @@
       "searchStartDate": "01/07/2023",
       "searchEndDate": "31/07/2023",
       "hpd_start_date": "01/06/2025",
-      "hpd_end_date": "30/08/2025",
+      "hpd_end_date": "30/10/2025",
       "hpd_working_start_time": "00:05",
       "hpd_working_end_time": "23:55",
       "hpd_monday": 1,
@@ -86,7 +86,7 @@
   "setHpClinicDiary": [
     {
       "hcd_start_date": "02/06/2025",
-      "hcd_end_date": "28/08/2025",
+      "hcd_end_date": "28/10/2025",
       "hcd_clinic_start_time": "00:15",
       "hcd_clinic_end_time": "23:45",
       "hcd_monday": 1,
@@ -103,7 +103,7 @@
   "editHpDiary": [
     {
       "hpd_start_date": "02/06/2025",
-      "hpd_end_date": "28/08/2025",
+      "hpd_end_date": "28/10/2025",
       "hpd_working_start_time": "00:15",
       "hpd_working_end_time": "23:45",
       "hpd_monday": 1,
@@ -115,13 +115,13 @@
       "hpd_sunday": 1,
       "hpd_occuring": "month",
       "hpd_week_of_month": 2,
-      "RepeatScheduleEndDate": "30/09/2025"
+      "RepeatScheduleEndDate": "31/08/2025"
     }
   ],
   "setHpLeave": [
     {
       "hpd_start_date": "15/06/2025",
-      "hpd_end_date": "25/06/2025",
+      "hpd_end_date": "25/10/2025",
       "hpd_working_start_time": "00:15",
       "hpd_working_end_time": "23:45",
       "hpd_indicator": 2,
@@ -138,7 +138,7 @@
   "setHpClinicLeave": [
     {
       "hcd_start_date": "15/06/2025",
-      "hcd_end_date": "25/06/2025",
+      "hcd_end_date": "25/10/2025",
       "hcd_clinic_start_time": "00:00:00",
       "hcd_clinic_end_time": "00:00:00",
       "hcd_indicator": 2,
@@ -155,7 +155,7 @@
   "editHpLeave": [
     {
       "hpd_start_date": "10/06/2025",
-      "hpd_end_date": "13/08/2026",
+      "hpd_end_date": "13/10/2026",
       "hpd_working_start_time": "01:20",
       "hpd_working_end_time": "10:20",
       "hpd_indicator": 2,
@@ -172,7 +172,7 @@
   "editHpClinicLeave": [
     {
       "hcd_start_date": "10/06/2025",
-      "hcd_end_date": "13/08/2026",
+      "hcd_end_date": "13/10/2026",
       "hcd_clinic_start_time": "00:00",
       "hcd_clinic_end_time": "00:00",
       "hcd_indicator": 2,

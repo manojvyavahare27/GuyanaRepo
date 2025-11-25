@@ -4,7 +4,7 @@ class ProcessDispatchOrderPopup
     {
         this.page=page
          this.closeIcon=page.locator("xpath=//button[@aria-label='cancelIcon']")
-         this.createDispatchOrderButton=page.locator("xpath=//button[@data-testid='createDispatchOrderPopup']")
+        this.createDispatchOrderButton=page.locator("xpath=//button[@data-testid='createDispatchOrderPopup']")
     }
     async clickOncloseIcon()
     {

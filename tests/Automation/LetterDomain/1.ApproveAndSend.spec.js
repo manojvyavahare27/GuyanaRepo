@@ -91,11 +91,9 @@ await confirmexisting.clickOnConfirmExistingDetails();
 console.log("Confirmed existing patient details.");
 
 
-await page.waitForTimeout(2000);
-await page.getByRole('button', { name: 'cancelIcon' }).click()
-await page.waitForTimeout(2000)
-await page.pause()
+await page.waitForTimeout(1000);
 
+await page.pause()
 await patientsidebar.clickOnLettersCategory();
 console.log("Opened Letters category.");
 
@@ -124,16 +122,18 @@ console.log("Clicked on Draft button.");
 
 await page.waitForTimeout(1000);
 
+await page.pause()
+
 await letterorSummeries.selectSendforApproval();
 console.log("Selected 'Send for Approval'.");
 
 await page.waitForTimeout(1000);
-
+await page.pause()
 await letterorSummeries.clickOnSendforApprovalButton();
 console.log("Clicked on 'Send for Approval' button.");
 
 await page.waitForTimeout(1000);
-
+await page.pause()
 await letterorSummeries.clickOnOkButton();
 console.log("Confirmed send for approval.");
 
@@ -141,7 +141,7 @@ await page.waitForTimeout(200);
 
 await expect(page.getByText("Letter added to patient successfully")).toHaveText("Letter added to patient successfully");
 console.log("Verified success message: Letter added to patient successfully.");
-
+await page.pause()
 
 // === Check DB ===
 var sqlQuery = "SELECT patlet_id,patletd_patient_location,patlet_name,patlet_type,patlet_status FROM patient_letters pl JOIN patient_letter_details pld ON pl.patlet_id = pld.patletd_patlet_id ORDER BY pl.patlet_id DESC LIMIT 1;";
@@ -161,7 +161,7 @@ if (match) {
     console.log("\nLetters Comparison: Mismatch found between JSON and DB values.\n");
 }
 
-
+await page.pause()
 // === UI Verifications ===
 await letterorSummeries.clickSearchButton();
 console.log("Clicked search button.");
@@ -177,15 +177,15 @@ console.log("Cleared status filter.");
 
 await letterorSummeries.clickSearchButton();
 console.log("Clicked search again to apply filters.");
-
+await page.pause()
 await page.getByLabel('expandRowIconundefined').click();
 console.log("Expanded letter row.");
 
-// await letterorSummeries.clickOnWordFormatIcon();
-// console.log("Clicked Word format icon.");
+await letterorSummeries.clickOnWordFormatIcon();
+console.log("Clicked Word format icon.");
 
-// await letterorSummeries.clickOnHtmlIcon();
-// console.log("Clicked HTML icon.");
+await letterorSummeries.clickOnHtmlIcon();
+console.log("Clicked HTML icon.");
 
 await letterorSummeries.clickOnEditHistoryIcon();
 console.log("Opened edit history.");

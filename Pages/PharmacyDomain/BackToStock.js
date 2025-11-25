@@ -3,9 +3,9 @@ class BackToStock {
         this.page = page;
 
         // Sidebar
-        this.batchQty = page.locator("xpath=//input[contains(@data-testid, 'Batch')]");
-        this.reasonforReturn=page.locator("xpath=//textarea[@data-testid='Reason for Return']")
-        this.SaveButton=page.locator("xpath=//div[@class='MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-spacing-xs-2 mui-8uz16t']//div[contains(text(),'Save')]")
+        this.batchQty = page.locator("xpath=//input[@data-testid='batchReturnQuantity']");
+        this.reasonforReturn=page.locator("xpath=//textarea[@id='reasonForReturn']")
+        this.SaveButton=page.locator("xpath=//button[@data-testid='saveBacKToStock']")
         
     }
 

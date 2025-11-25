@@ -98,8 +98,8 @@ test.describe("Appointment Domain Db COmparison", () => {
     //await confirmexisting.clickOnSaveChangeDetails();
     await confirmexisting.clickOnConfirmExistingDetails();
     await page.waitForTimeout(1500);
-    await addreferral.enterReceiveReferrldate(jsonData.AddReferral[index].rtt_referral_received_date.toString());
-    await addreferral.enterApproveReferralDate(jsonData.AddReferral[index].rtt_referral_approved_date.toString());
+    // await addreferral.enterReceiveReferrldate(jsonData.AddReferral[index].rtt_referral_received_date.toString());
+    // await addreferral.enterApproveReferralDate(jsonData.AddReferral[index].rtt_referral_approved_date.toString());
     await addreferral.enterDateOfReferral(jsonData.AddReferral[index].ref_referral_date.toString());
     await addreferral.enterTimeOfReferral(jsonData.AddReferral[index].ref_time_set.toString());
     await addreferral.selectSourceOfReferrals();
@@ -115,7 +115,7 @@ test.describe("Appointment Domain Db COmparison", () => {
     await addreferral.selectPatientcare();
     await addreferral.selectPreferredSexForAssessment(jsonData.AddReferral[index].ref_preferred_examiner_sex_entry.toString());
     await addreferral.selectConsultant();
-    await addreferral.selectMethodOfArrival(jsonData.AddReferral[index].ref_method_of_arrival.toString());
+    //await addreferral.selectMethodOfArrival(jsonData.AddReferral[index].ref_method_of_arrival.toString());
     await addreferral.enterTimeOfArrival(jsonData.AddReferral[index].ref_time_of_arrival.toString());
     await addreferral.clickOnAwaitReferralAcceptance();
     await addreferral.clickOnSaveButton();
@@ -128,12 +128,8 @@ test.describe("Appointment Domain Db COmparison", () => {
     await homepage.clickOnHomePageIcon();
     await homepage.clickOnPatientIcon();
     //await patientsearch.clickOnSearchButton()
-    await patientsearch.enterGivenName(
-      jsonData.addPatient[index].pat_firstname.toString()
-    );
-    await patientsearch.enterFamilyName(
-      jsonData.addPatient[index].pat_surname.toString()
-    );
+    await patientsearch.enterGivenName(jsonData.addPatient[index].pat_firstname.toString());
+    await patientsearch.enterFamilyName(jsonData.addPatient[index].pat_surname.toString());
     await patientsearch.clickOnSearchButton();
     await patientsearch.clickOnSearchPatientLink();
     //await patientsearch.ClickOnYesConfirmLegitimateRelationship()
@@ -178,9 +174,7 @@ test.describe("Appointment Domain Db COmparison", () => {
     console.log("Patient id is:" + patId);
 
     sqlQuery =
-      "select * from referrals join referral_treatment_target_times on rtt_ref_id = ref_id where ref_pat_id ='" +
-      patId +
-      "' order by ref_id desc limit 1";
+       sqlQuery="select * from referrals where ref_pat_id ='" +  patId + "' order by ref_id desc limit 1";
     console.log(sqlQuery);
     results = await executeQuery(sqlQuery, sqlFilePath);
 

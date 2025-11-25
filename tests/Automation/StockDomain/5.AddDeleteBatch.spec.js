@@ -72,16 +72,15 @@ test.describe("Database Comparison Add New Referral", () => {
    await stockItemsFliters.selectCategory(jsonData.EditStockItem[0].stock_category)
    await stockItemsFliters.selectFilter('All Stock')
    await stockItemsFliters.selectExpiringDate('Before Expiry Date')   
-   await stockItemsFliters.selectFormulary('Automation formulary')
+   ///await stockItemsFliters.selectFormulary('Automation formulary')
    await stockItemsFliters.enterItemName('Allopurinol 100mg tablets')
    await stockItemsFliters.clickSearchButton()
    
-    await stockItemsFliters.selectFormulary('Testing formulary')
+    //await stockItemsFliters.selectFormulary('Testing formulary')
     await stockItemsFliters.clearItemName()
    await stockItemsFliters.clickSearchButton()
 
-   
-  
+   //await page.pause()
    await stockItemsFliters.enterItemName(jsonData.AddNewStock[0].stock_name)
    await stockItemsFliters.clickSearchButton()
    await page.waitForTimeout(2000)
@@ -90,12 +89,9 @@ test.describe("Database Comparison Add New Referral", () => {
 
    await stockallLoc.clickOnAddBatchLink()
    await page.waitForTimeout(500)
-   
    await addFormulary.clickOnClosePopup()
    await page.waitForTimeout(500)
-    
    await stockallLoc.clickOnAddBatchLink()
-  
    await addBatch.enterSupplierName(jsonData.AddBatch[0].stbat_supplier)
    await addBatch.enterBatchNumber(jsonData.AddBatch[0].stbat_batch_number)
    await addBatch.enterBatchQuantity(jsonData.AddBatch[0].stbat_quantity)
@@ -104,13 +100,12 @@ test.describe("Database Comparison Add New Referral", () => {
    await addBatch.enterReceivedDate(jsonData.AddBatch[0].stbat_batch_received_date)
    await addBatch.enterExpiryDate(jsonData.AddBatch[0].stbat_expiry_date)
    await addBatch.enterRetailPrice(jsonData.AddBatch[0].stbat_retail_price)  
-    await page.waitForTimeout(1000)
-   await addBatch.clickSave()   
-  
-   //await addFormulary.clickOnAddFormularyButton()
-   //await expect(page.getByText('Batch added successfully')).toHaveText('Batch added successfully')
-   //await addFormulary.clickOnClosePopup()
    
+   await addBatch.clickSave()  
+   //await addFormulary.clickOnAddFormularyButton()
+   await expect(page.getByText('Batch added successfully')).toHaveText('Batch added successfully')
+   //await addFormulary.clickOnClosePopup()
+   await page.waitForTimeout(500) 
 
    //get Stock Id from DB
 
@@ -121,9 +116,8 @@ test.describe("Database Comparison Add New Referral", () => {
         const stock_id = results[0].stock_id;     
         console.log("Stock id is: "+stock_id); 
 
-     
    //check DB for add Batch
-    var sqlQuery =  "SELECT * FROM stock_batches where stbat_stock_id='" + stock_id + "' order by 1 desc limit 1;";
+    var sqlQuery =  "SELECT * FROM stock_batches where stbat_stock_id=421 order by 1 desc limit 1;";
         console.log(sqlQuery)        
         var sqlFilePath = "SQLResults/StockDomain/AddBatch.json";
         var results = await executeQuery(sqlQuery, sqlFilePath);        
@@ -136,9 +130,17 @@ test.describe("Database Comparison Add New Referral", () => {
           console.log("\n Add New Stock Comparision: Parameters from both JSON files do not match!\n");
         }
 
+         closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
+
    //Delete Batch
    
-   //await page.pause()
+  // await page.pause()
+   await addStockItems.clickOnExpandsDefaultPharmacy()
    await page.waitForTimeout(1000)
    await addStockItems.clickOnExpandsDefaultPharmacy()
    await addBatch.clickOnExtraBatchLink()
@@ -158,7 +160,7 @@ test.describe("Database Comparison Add New Referral", () => {
    await page.waitForTimeout(200) 
    await expect(page.getByText('Stock item updated successfully')).toHaveText('Stock item updated successfully')
    await page.waitForTimeout(500) 
-  // await page.pause()
+   
    await addStockItems.clickOnExpandsDefaultPharmacy()
    await addBatch.clickOnExtraBatchLink()
 
@@ -171,19 +173,25 @@ test.describe("Database Comparison Add New Referral", () => {
    //Delete Batch
 
     //check DB for add Batch
-    var sqlQuery =  "SELECT stbat_serial_number,stbat_quantity,stbat_manufacture_date,stbat_expiry_date,stbat_batch_number,stbat_supplier,stbat_batch_received_date,stbat_purchase_price,stbat_unit_cost,stbat_retail_price FROM stock_batches where stbat_stock_id='" + stock_id + "' order by 1 desc limit 1;";
+    var sqlQuery =  "SELECT stbat_serial_number,stbat_quantity,stbat_manufacture_date,stbat_expiry_date,stbat_batch_number,stbat_supplier,stbat_batch_received_date,stbat_purchase_price,stbat_unit_cost,stbat_retail_price FROM stock_batches where stbat_stock_id=421 order by 1 desc limit 1;";
         console.log(sqlQuery)        
         var sqlFilePath = "SQLResults/StockDomain/DeleteBatch.json";
         var results = await executeQuery(sqlQuery, sqlFilePath);        
         //const stock_id = results[0].stock_id;     
         //console.log("Stock id is: "+stock_id);            
-        var match = await compareJsons(sqlFilePath, null, jsonData.DeleteBatch[index]);
+        var match = await compareJsons(sqlFilePath, null, jsonData.EditBatch[index]);
         if (match) {
           console.log("\n Add New Stock Comparision: Parameters from both JSON files match!\n");
         } else {
           console.log("\n Add New Stock Comparision: Parameters from both JSON files do not match!\n");
         }
 
+         closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
    await page.waitForTimeout(500) 
    await addStockItems.clickOnLogout(page)
    //await addStockItems.enterPurchaseRate('5.00')

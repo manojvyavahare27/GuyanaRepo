@@ -97,7 +97,7 @@ test.describe("Patient Domain Db Comparison", () => {
         await patientsearch.enterGivenName(jsonData.patDetails[index].pat_firstname);
         await patientsearch.enterFamilyName(jsonData.patDetails[index].pat_surname);
         await patientsearch.clickOnSearchButton();
-        await patientsearch.clickOnSearchPatientLink();        
+        await patientsearch.clickOnSearchPatientLink();
         await confirmexisting.clickOnConfirmExistingDetails();
         await topbluebar.clickOnTopBlueBar();
         await editpatient.clickOnPatientDetails();
@@ -107,8 +107,8 @@ test.describe("Patient Domain Db Comparison", () => {
         await patientdeath.enterCauseOfDeathReason(jsonData.patCauseOfDeath[index].pod_cause);
         await patientdeath.selectCheckBoxDeathCauseReason();
         await patientdeath.enterCauseOfDeathType();
-        await patientdeath.enterOtherCauseeOfDeath();
-     
+        await page.pause()
+        await patientdeath.enterOtherCauseeOfDeath();     
         await patientdeath.enterAdditionalNotes(jsonData.patDetails[index].pat_death_notes);
         await patientdeath.selectDateOfDeath();
         await patientdeath.selectMarkPatientAsDead();

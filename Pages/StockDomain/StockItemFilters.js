@@ -38,18 +38,14 @@ class StockItemFiltersPage {
         console.log(`✅ Category filled correctly: "${actual}"`);
     }
 
-    async selectFilter(filter) {
-        await this.filter.fill(filter);
-        const actual = await this.filter.inputValue();
-        if (actual !== filter) throw new Error(`❌ Filter mismatch. Expected: "${filter}", Found: "${actual}"`);
-        console.log(`✅ Filter filled correctly: "${actual}"`);
+    async selectFilter() {
+        await this.filter.click()
+        await this.page.getByRole('option', { name: 'All Stock' }).click()        
     }
 
-    async selectExpiringDate(date) {
-        await this.expiringDate.fill(date);
-        const actual = await this.expiringDate.inputValue();
-        if (actual !== date) throw new Error(`❌ Expiring Date mismatch. Expected: "${date}", Found: "${actual}"`);
-        console.log(`✅ Expiring Date filled correctly: "${actual}"`);
+    async selectExpiringDate() {
+        await this.expiringDate.click()
+        await this.page.getByRole('option', { name: 'Before Expiry Date' }).click()
     }
 
     async selectSubCategory(subCategory) {
@@ -60,10 +56,8 @@ class StockItemFiltersPage {
     }
 
     async selectFormulary(formulary) {
-        await this.formulary.fill(formulary);
-        const actual = await this.formulary.inputValue();
-        if (actual !== formulary) throw new Error(`❌ Formulary mismatch. Expected: "${formulary}", Found: "${actual}"`);
-        console.log(`✅ Formulary filled correctly: "${actual}"`);
+        await this.formulary.click()
+        await this.page.getByRole('option', { name: 'Automation formulary' }).click()
     }
 
     async enterItemName(stock_name) {

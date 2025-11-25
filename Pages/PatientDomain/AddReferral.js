@@ -2,7 +2,7 @@ class AddReferral{
     constructor(page)
     {
         this.page=page
-        this.backbuttononaddreferral=page.getByRole('button', { name: 'Back Button' })
+       this.backbuttononaddreferral=page.getByRole('button', { name: 'Back Button' })
         // this.dropdownReceiveReferralDate=page.getByTestId('Received Referral Date').getByPlaceholder('dd/mm/yyyy')
         // this.dropdownApproveReferralDate=page.getByTestId('Approved Referral Date').getByPlaceholder('dd/mm/yyyy')
         // this.dropdowndateofreferral=page.getByTestId('Date of Referral').getByPlaceholder('dd/mm/yyyy')
@@ -84,7 +84,7 @@ class AddReferral{
     async selectPatientcare()
     {
         await this.dropdownpatientcare.click()
-        await this.page.getByRole('option', { name: 'Out Patient' }).click()
+        await this.page.getByRole('option', { name: 'In Patient' }).click()
     }
     
     

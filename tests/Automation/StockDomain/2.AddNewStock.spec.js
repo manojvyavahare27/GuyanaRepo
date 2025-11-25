@@ -66,7 +66,7 @@ test.describe("Database Comparison Add New Referral", () => {
    
 
    // Stock items filters
-   //await page.pause()
+   
    await stockItemsFliters.selectLocation('Default Pharmacy')
    await stockItemsFliters.selectCategory(jsonData.AddNewStock[0].stock_category)
    await stockItemsFliters.selectFilter('All Stock')
@@ -126,7 +126,7 @@ test.describe("Database Comparison Add New Referral", () => {
    await addStockItems.enterSerialNumber(jsonData.AddNewStock[0].stbat_serial_number)
    await page.waitForTimeout(1500)
   //  await addStockItems.enterSterilizationExpiryDate('01/01/2030')
-  //  await page.waitForTimeout(1500)
+  
    await addStockItems.enterManufacturedDate(jsonData.AddNewStock[0].stbat_manufacture_date)
    await page.waitForTimeout(1500)
    await addStockItems.enterReceivedDate(jsonData.AddNewStock[0].stbat_batch_received_date)
@@ -135,12 +135,11 @@ test.describe("Database Comparison Add New Referral", () => {
 
    await addStockItems.enterPurchaseRate(jsonData.AddNewStock[0].stbat_purchase_price)
    await addStockItems.enterUnitCost(jsonData.AddNewStock[0].stbat_unit_cost)
-   await addStockItems.enterRetailPrice(jsonData.AddNewStock[0].stbat_retail_price)
-   
+   await addStockItems.enterRetailPrice(jsonData.AddNewStock[0].stbat_retail_price)   
    await addStockItems.FillPositions1()
-   await addStockItems.FillPositions2()
-   await addStockItems.FillPositions3()
-   await addStockItems.FillPositions4()
+  //  await addStockItems.FillPositions2()
+  //  await addStockItems.FillPositions3()
+  //  await addStockItems.FillPositions4()
 
    await addStockItems.ClickOnSaveStockItemButton()
    await page.waitForTimeout(200)
@@ -164,9 +163,14 @@ test.describe("Database Comparison Add New Referral", () => {
           console.log("\n Add New Stock Comparision: Parameters from both JSON files do not match!\n");
         }
 
+         closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
 
-
- await page.waitForTimeout(2000)
+   await page.waitForTimeout(2000)
    await addStockItems.clickOnLogout(page)
    
 

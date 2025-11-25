@@ -115,7 +115,7 @@ test.describe("Medications Category", () => {
       await pharmacyHomePage.clickOnClosePopup()
 
       await pharmacyHomePage.clickOnChangeStatus()
-      //await page.pause()
+      await page.pause()
 
       await pharmacyHomePage.clickOnExpandIconForDispense()
       await pharmacyHomePage.clickOnBackToStockButton()

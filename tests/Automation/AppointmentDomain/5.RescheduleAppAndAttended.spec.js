@@ -91,8 +91,6 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await homepage.clickOnAppointmentIcon()     
         await patientsearch.clickonBackButton()
         await homepage.clickOnAppointmentIcon()   
-        await homepage.clickOnDrawerHeader()
-        await homepage.clickOnAddappLink()
         await patientsearch.clickOnsettingbutton()
         await page.waitForTimeout(2000);
         await patientsearch.clickOncustomizableViewforPatientSearchOnAppointment()    
@@ -106,17 +104,15 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         //await homepage.clickOnPatientIcon()
         await homepage.clickonSidebarHomeIcon()
         await homepage.clickOnAppointmentIcon()     
-        await homepage.clickOnDrawerHeader()
-      await homepage.clickOnAddappLink()
         await patientsearch.clickOnSearchPatButton()
         await patientsearch.enterGivenName(jsonData.addPatient[index].pat_firstname)
         await patientsearch.enterFamilyName(jsonData.addPatient[index].pat_surname);
         await patientsearch.selectSex(jsonData.addPatient[index].pat_sex);
-        await patientsearch.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref);  
-        //await page.pause()
+        //await patientsearch.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref);  
+
         //await patientsearch.selectBornDate()
         await patientsearch.clickOnSearchPatButton()
-       // await expect(page.getByText('Patient list found')).toHaveText('Patient list found') 
+        await expect(page.getByText('Patient list found')).toHaveText('Patient list found') 
         await patientsearch.clickOnSearchPatientLink()   
         
         //await patientsearch.ClickOnYesConfirmLegitimateRelationship()
@@ -128,7 +124,6 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         if(addReferralText==true)
         {       
 
-           await page.pause()
         // await menu.clickOnMenubtn()
         // await menu.clickOnAddReferrallink()
         //Add New Referral to Patient.
@@ -149,7 +144,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await addreferral.selectPatientcare()
         await addreferral.selectPreferredSexForAssessment(jsonData.AddReferral[index].ref_preferred_examiner_sex_entry)
         await addreferral.selectConsultant()
-      
+        
         await addreferral.selectMethodOfArrival(jsonData.AddReferral[index].ref_method_of_arrival.toString())
         await addreferral.enterTimeOfArrival(jsonData.AddReferral[index].ref_time_of_arrival.toString())
         await addreferral.clickOnSaveButton()
@@ -194,9 +189,8 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.clickOnCommuConsentSaveButton()
         await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
         await page.waitForTimeout(2000);
-        
-        await page.pause()
         //Atteded Appointment
+        //await page.pause()
         await scheduleserviceapp.clickOnAppScheduleStatus()
         await scheduleserviceapp.clickOnAddAttended()
         await scheduleserviceapp.clickOnSaveButton()
@@ -290,7 +284,8 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.clickOnRadioAllYes()
         await servicebookapp.clickOnCommuConsentSaveButton()
         await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
- await page.pause()
+        
+
         var sqlQuery =
         "select * from patients where pat_hospital_ref= '" +
         jsonData.addPatient[index].pat_hospital_ref +
@@ -340,7 +335,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
                 
 
         //change Appoitntment Type
- 
+
         await scheduleserviceapp.ClickonAppTypeLink()
         await scheduleserviceapp.clickOnCloseAppTypePopup()
         await scheduleserviceapp.ClickonAppTypeLink()
@@ -371,7 +366,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
           );
         }
 
-  
+
         //Click On Date Link
         await scheduleserviceapp.clickOnDateLink()
         await adeditpatientappointment.clickOnBackButton()
@@ -380,19 +375,20 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         //Change App Status
     //     const AppStatus=await page.getByTestId('Status').isVisible()
     //     if(AppStatus=="Scheduled")
- await page.pause()
+
 
     //Change status to Reschedule Appointment
-     
+    
+    
     await scheduleserviceapp.clickOnAppScheduleStatus()
-    await scheduleserviceapp.clickonRescheduleAppButton()
+    await scheduleserviceapp.clickOnReScheduleAppButton()
     await scheduleserviceapp.selectDropdownReasonForRescheduling()
     await scheduleserviceapp.clickOnSaveReschedulingReason()
     await scheduleserviceapp.clickOnCancelReschedulingConfirmation()
     await scheduleserviceapp.clickOnSaveReschedulingReason()
     await scheduleserviceapp.clickOnPreceedReschedulingConfirmation()
 
-   
+
     //Rescheduled New Appointment.
     
         await servicebookapp.RescheduleSelectDate(jsonData.rescheduleAppointments[index].rea_date)
@@ -414,7 +410,6 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
            await page.getByTestId('Ok').click()
         }
 
-        
         await servicebookapp.selectAppDetailsAppointmentType(jsonData.rescheduleAppointments[index].reaType)    
         await servicebookapp.selectAppDetailsAppReason(jsonData.rescheduleAppointments[index].rea_review_reason)
         await servicebookapp.selectSendAppTextEmail()
@@ -524,7 +519,6 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
 
     //      //Atteded Appointment
     //     await scheduleserviceapp.clickOnAppScheduleStatus()
-    
     
     //Cancel Appointment
         await scheduleserviceapp.clickOnAppScheduleStatus()

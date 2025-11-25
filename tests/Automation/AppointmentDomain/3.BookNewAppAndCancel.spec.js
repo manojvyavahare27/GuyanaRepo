@@ -83,18 +83,17 @@ test.describe("Database Comparison Book New App and Cancel", () => {
      await loginpage.enter_Password(jsonData.loginDetails[0].password);
      await page.waitForTimeout(1500);
      await loginpage.clickOnLogin();
-    
-   
-    
     // await expect(page.getByText("Login success")).toHaveText("Login success");
      await page.waitForTimeout(1000);
+     
+     await page.pause()
      await homepage.clickonSidebarHomeIcon()
      await homepage.clickOnAppointmentIcon()     
-     await patientsearch.clickonBackButton()
-     await homepage.clickOnAppointmentIcon()   
-     await homepage.clickOnDrawerHeader()
-    await homepage.clickOnAddappLink()
+    // await patientsearch.clickonBackButton()
+    await homepage.clickOnDrawerHeader()
+    await homepage.clickOnAddAppointmentlink()
 
+     //await homepage.clickOnAppointmentIcon()   
      await patientsearch.clickOnsettingbutton()    
      await patientsearch.clickOncustomizableViewforPatientSearchOnAppointment()    
      await patientsearch.clickOnResetToDefaultViewButton()
@@ -103,26 +102,25 @@ test.describe("Database Comparison Book New App and Cancel", () => {
      await page.getByRole('img', { name: 'Cellma Image Avatar' }).click()   
      //await homepage.clickOnPatientIcon()
      await homepage.clickonSidebarHomeIcon()
-     await homepage.clickOnAppointmentIcon()    
-    
-
+     await homepage.clickOnAppointmentIcon()   
       await homepage.clickOnDrawerHeader()
-      await homepage.clickOnAddappLink()
-
-
+    await homepage.clickOnAddAppointmentlink() 
+    // await page.pause()
      await patientsearch.clickOnSearchPatButton()
+     //await page.pause()
     // await expect(page.getByText('At least one search field should be set for a search.')).toHaveText('At least one search field should be set for a search.')
      await page.waitForTimeout(1000);
      await patientsearch.enterGivenName(jsonData.addPatient[index].pat_firstname)
      await patientsearch.enterFamilyName(jsonData.addPatient[index].pat_surname)
      await patientsearch.selectSex(jsonData.addPatient[index].pat_sex)  
-    await patientsearch.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref)
     
+     //await patientsearch.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref)
+    //await page.pause()
      //await patientsearch.selectBornDate()
      await patientsearch.clickOnSearchPatButton()
      //await expect(page.getByText('Patient list found')).toHaveText('Patient list found') 
      await patientsearch.clickOnSearchPatientLink()   
-     
+     //await page.pause()
      //await patientsearch.ClickOnYesConfirmLegitimateRelationship()
      await page.waitForTimeout(5000);    
      await confirmexisting.clickOnConfirmExistingDetails()
@@ -160,8 +158,8 @@ test.describe("Database Comparison Book New App and Cancel", () => {
      //await expect(page.getByText('Referral added successfully')).toHaveText('Referral added successfully')
      await addreferral.clickOnBackButton()     
           await page.waitForTimeout(2000);
+          
           // await page.getByRole('button', { name: 'Add Appointments' }).click()
-        
           await servicebookapp.SelectDate(jsonData.bookNewAppointments[index].rea_date)
           await page.waitForTimeout(2000);
           await servicebookapp.selectDropdownSpecility(jsonData.bookNewAppointments[index].rea_special)
@@ -202,7 +200,7 @@ test.describe("Database Comparison Book New App and Cancel", () => {
           await servicebookapp.clickOnCommuConsentSaveButton()
           await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
          
-          // await page.pause()
+          await page.pause()
           // 3rd July code
           await scheduleserviceapp.clickOnLinksMenu()
           await scheduleserviceapp.clickOnAddAppointmentLink()
@@ -257,8 +255,10 @@ test.describe("Database Comparison Book New App and Cancel", () => {
           await scheduleserviceapp.clickonRefresh()
           await scheduleserviceapp.closePopUpWindow()     
          
+          await page.pause()
      await scheduleserviceapp.ClickonAppTypeLink()
      await scheduleserviceapp.clickOnCloseAppTypePopup()
+     await page.pause()
      await scheduleserviceapp.ClickonAppTypeLink()
      await scheduleserviceapp.selectAppTypeDropdown()
      await scheduleserviceapp.clickOnChangeButton()
@@ -336,6 +336,7 @@ test.describe("Database Comparison Book New App and Cancel", () => {
           await servicebookapp.enterNotes(jsonData.bookNewAppointments[index].rea_notes)    
           await servicebookapp.clickOnSaveAndBookbTodaysDateButton()
 
+         
           //Communication Consent
           await servicebookapp.selectCommConsentNo()
           await servicebookapp.clikcOnRadioAllNo()
@@ -366,22 +367,27 @@ test.describe("Database Comparison Book New App and Cancel", () => {
           console.log( "\n Add Edit Appointment Details Comparision: Parameters from both JSON files do not match!\n" );
         }
        
-      
      await page.waitForTimeout(1000)
      await scheduleserviceapp.ClickonAppTypeLink()
      await scheduleserviceapp.clickOnCloseAppTypePopup()
-   
      await scheduleserviceapp.ClickonAppTypeLink()
      await scheduleserviceapp.selectAppTypeDropdown()
      await scheduleserviceapp.clickOnChangeButton()
      await expect(page.getByText('Appointment type has been changed successfully')).toHaveText('Appointment type has been changed successfully')
 
-    
+     await page.pause()
+
+     await page.getByRole('checkbox', { name: 'Select All' }).click()
          //Click On Date Link
+         await scheduleserviceapp.clickOnGenerateMultipleAppButton()
+         await scheduleserviceapp.selectServiceAppTemplate()
+         await scheduleserviceapp.clickCreateLetterButton()
+         await scheduleserviceapp.clickOnCreateDraftButton()
+         await scheduleserviceapp.clickOnOkButton()
+
      await scheduleserviceapp.clickOnDateLink()
      await adeditpatientappointment.clickOnBackButton()   
      //Cancel Appointment
-    
      await scheduleserviceapp.clickOnAppScheduleStatus()
      await scheduleserviceapp.clickOnCancelButton()
      await scheduleserviceapp.selectAppCancellationReason(jsonData.bookNewAppointments[index].rea_cancelled_reason)

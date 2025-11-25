@@ -51,7 +51,7 @@ class AddGP
     }
     async enterGpSearch()
     {
-        await this.txtbox_SearchGP.type('ABADI')
+        await this.txtbox_SearchGP.type('Vincent')
     }
     async enterAppGpSearch(egp_fullname)
     {

@@ -73,12 +73,10 @@ test.describe("Database Comparison Add New Referral", () => {
         await loginpage.enter_Password(jsonData.loginDetails[1].password);
         await page.waitForTimeout(2000);
         await loginpage.clickOnLogin();
-        
         await homepage.clickonSidebarHomeIcon();
         await homepage.clickOnSideIconStock()
 
         await stockallLoc.clickOnShowHiddenLocationButton()     
-        await page.waitForTimeout(1000)
         await stockallLoc.clickOnCardioLocation()
         await page.waitForTimeout(1000)
         await stockItemsFliters.enterItemName(jsonData.AddNewStock[0].stock_name)
@@ -101,7 +99,7 @@ test.describe("Database Comparison Add New Referral", () => {
         //check Pending Return Status     
     //Check approved status after click receive item into another location
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/ReturnStockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -149,7 +147,7 @@ test.describe("Database Comparison Add New Referral", () => {
   
     //Check approved status after click receive item into another location
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/ReturnStockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -162,6 +160,12 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Return Status Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
 
         await stockReturnPage.clickOnLastReturnLink()
         await page.waitForTimeout(2000)
@@ -174,7 +178,7 @@ test.describe("Database Comparison Add New Referral", () => {
  
     //Check approved status after click receive item into another location
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/ReturnStockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -185,6 +189,13 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Transfered Status Comparision: Parameters from both JSON files match!\n");
     } else {
       console.log("\n Transfered Status Comparision: Parameters from both JSON files do not match!\n");
+    }
+
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
     }
 
         await stockReturnPage.clickOnLastTransferLink()

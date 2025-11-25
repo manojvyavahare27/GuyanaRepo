@@ -28,10 +28,10 @@ class Menu{
     // }
 
     async  clickOnLogout(page) {
-  if (!page) throw new Error('Page is undefined');
+  
 
-  await page.waitForSelector("//button[@aria-label='profileIcon']", { state: 'visible' });
-  await page.waitForTimeout(500)
+//   await page.waitForSelector("//button[@aria-label='profileIcon']", { state: 'visible' });
+//   await page.waitForTimeout(500)
   await page.hover("//button[@aria-label='profileIcon']");
   await page.click('//div[@aria-label="Logout"]'); // Update this if your logout button has a different selector
 }

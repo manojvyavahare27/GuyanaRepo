@@ -1,50 +1,58 @@
 const fs = require("fs");
 const XLSX = require("xlsx");
-//const path = "C:/Riomed/Cellma4Automation";
+const path = "C:/Riomed/Cellma4Automation";
 const mysql = require("mysql2");
-const convertExcelToJson = require("../../../../config/global-setupOptimized");
+///const convertExcelToJson = require("D:/Pre-release clinical/Cellma4Demo/config/global-setupOptimized");
 //\\\config\global-setupOptimized.js
-const { test, expect } = require("@playwright/test");
 
-const connectToDatabase = require("../../../../manoj").default;
-const { executeQuery } = require("../../../../databaseWriteFile"); // Update the path accordingly
-import compareJsons from "../../../../compareJson.js";
+
+const convertExcelToJson = require('../../../config/global-setupOptimized');
+
+const { test, expect, chromium } = require("@playwright/test");
+const connectToDatabase = require("../../../manoj");
+const { executeQuery } = require("../../../databaseWriteFile"); // Update the path accordingly
+import compareJsons from "../../../compareFileOrJson"; 
+
+
+// const { test, expect } = require("@playwright/test"); 
+// const connectToDatabase = require("D:/Pre-release clinical/Cellma4Demo/manoj").default;
+// const { executeQuery } = require("D:/Pre-release clinical/Cellma4Demo/databaseWriteFile"); // Update the path accordingly
+//import compareJsons from "D:/Pre-release clinical/Cellma4ClinicalAuto/compareFileOrJson";
+
 //D:\Pre-release clinical\Cellma4ClinicalAuto\compareFileOrJson.js
-import logger from "../../../../Pages/BaseClasses/logger.js";
-import LoginPage from "../../../../Pages/BaseClasses/LoginPage";
-import Homepage from "../../../../Pages/BaseClasses/Homepage";
-import ConfirmExisting from "../../../../Pages/PatientDomain/ConfirmExisting";
-import ContactHistory from "../../../../Pages/ClinicalDomain/PatientSummary/ContactHistory";
-import PatientSearch from "../../../../Pages/PatientDomain/PatientSearch";
-import Environment from "../../../../Pages/BaseClasses/Environment";
-import Menu from "../../../../Pages/BaseClasses/Menu";
-import ClinicalSummary from "../../../../Pages/ClinicalDomain/PatientSummary/ClinicalSummary.js";
-import ClinicalExtraDetails from "../../../../Pages/ClinicalDomain/PatientSummary/ClinicalExtraDetails";
-
-
+import logger from "../../../Pages/BaseClasses/logger";
+import LoginPage from "../../..//Pages/BaseClasses/LoginPage";
+import Homepage from "../../../Pages/BaseClasses/Homepage";
+import ConfirmExisting from "../../../Pages/PatientDomain/ConfirmExisting";
+import ContactHistory from "../../../Pages/ClinicalDomain/PatientSummary/ContactHistory";
+import PatientSearch from "../../../Pages/PatientDomain/PatientSearch";
+import Environment from "../../../Pages/BaseClasses/Environment";
+import Menu from "../../../Pages/BaseClasses/Menu";
+import ClinicalSummary from "../../../Pages/ClinicalDomain/PatientSummary/ClinicalSummary.js";
+import ClinicalExtraDetails from "../../../Pages/ClinicalDomain/PatientSummary/ClinicalExtraDetails";
+ 
+ 
 import { TIMEOUT } from "dns";
 import { error } from "console";
 import { before } from "node:test";
-import { toggleDivVisibility } from "../../../../UtilFiles/DynamicUtility.js";
+//import { toggleDivVisibility } from "D:/Pre-release clinical/Cellma4ClinicalAuto/UtilFiles/DynamicUtility";
 // Array to store console logs
-
+ 
 const consoleLogs = [];
 let jsonData;
-
+ 
 test.describe("Excel Conversion Master Price", () => {
-  test("Extract Finance Details", async ({}) => {
+  test("Extract Patient Summary Details", async ({}) => {
     const excelFilePath =
-      process.env.EXCEL_FILE_PATH || "./ExcelFiles/Finance.xlsx";
-    //const jsonFilePath = "./TestDataWithJSON/FinanceDomain/FinanceDetails.json";
-    const jsonFilePath = "./TestDataWithJSON/FinanceDomain/FinanceDetails.json";
-
+      process.env.EXCEL_FILE_PATH || "./ExcelFiles/PatientSummary.xlsx";
+    const jsonFilePath = "./TestDataWithJSON/PatientDomain/PatientSummary.json";
+ 
     console.log("excelFilePath:", excelFilePath);
     console.log("jsonFilePath:", jsonFilePath);
     const conversionSuccess = await convertExcelToJson(excelFilePath,jsonFilePath);
     if (conversionSuccess) {
       // jsonData = require("../../../TestDataWithJSON/PatientDomain/PatientDetails.json");
-      //jsonData = require("../../../TestDataWithJSON/FinanceDomain/FinanceDetails.json");
-      jsonData = require("../../../../TestDataWithJSON/FinanceDomain/FinanceDetails.json");
+      jsonData = require("D:/Pre-release clinical/Cellma4ClinicalAuto/TestDataWithJSON/PatientDomain/PatientSummary.json");
       console.log("Excel file has been converted successfully!");
       console.log("jsonData:", jsonData); // Log the loaded JSON data
       console.log("excelFilePath after conversion:", excelFilePath);
@@ -54,7 +62,7 @@ test.describe("Excel Conversion Master Price", () => {
     }
   });
 });
-
+ 
 test.describe("MasterPrice Category", () => {
   test("Add MasterPriceItem", async ({ page }) => {
     if (!jsonData || !jsonData.PatientDetails) {
@@ -70,8 +78,8 @@ test.describe("MasterPrice Category", () => {
       const patientsearch = new PatientSearch(page);
       const masterPrice = new ClinicalSummary(page);
       const InterpretationsExtraDetails = new ClinicalExtraDetails(page);
-      
-
+     
+ 
       const menu = new Menu(page);
       await page.goto(environment.Test);
       await loginpage.enterUsername(jsonData.loginDetails[0].username);
@@ -97,7 +105,7 @@ test.describe("MasterPrice Category", () => {
       await masterPrice.enterItemCode2(jsonData.MasterPrice[0].mepr_item_code2)
       await masterPrice.enterMasterPrice(jsonData.MasterPrice[0].mepr_master_price)
       await masterPrice.clickAddButton()
-
+ 
       await page.waitForTimeout(5000)
       await masterPrice.clickVariablePriceLink()
       await page.waitForTimeout(2500)
@@ -107,9 +115,9 @@ test.describe("MasterPrice Category", () => {
       await masterPrice.selectCustomerTypeCheckbox()
       await page.mouse.click(10, 10);
       //await page.locator('.MuiBackdrop-root.MuiBackdrop-invisible').click();
-
+ 
       await page.pause()
-
+ 
       await masterPrice.selectCustomerType(jsonData.MasterPrice[0].varpriVariableTypeEliText)
       await masterPrice.enterRateForCustomerType1(jsonData.MasterPrice[0].varpriRate)
       await masterPrice.clickAddCustomerType()
@@ -118,11 +126,11 @@ test.describe("MasterPrice Category", () => {
       await masterPrice.clickSaveVariablePrice()
        
       await page.pause()
-
+ 
       ////// Database comparison- Master Price/////////
       // var sqlQuery =
       // "select mepr_item_name, mepr_category, mepr_item_code2, mepr_item_code2_type,mepr_master_price"+
-      // " from master_prices where mepr_record_status='approved'and mepr_item_name='Special Bed'"+ 
+      // " from master_prices where mepr_record_status='approved'and mepr_item_name='Special Bed'"+
       // "' order by 1 desc limit 1";
     //   var sqlQuery =
     //   "SELECT mepr_item_name, mepr_category, mepr_item_code2, mepr_item_code2_type, mepr_master_price " +
@@ -130,9 +138,9 @@ test.describe("MasterPrice Category", () => {
     //   "ORDER BY 1 DESC LIMIT 1";
     //   var sqlFilePath = "SQLResults/MasterPriceList/MasterPriceList.json";
     //   var results = await executeQuery(sqlQuery, sqlFilePath);
-
+ 
     // console.log("Master Price:  "+ sqlQuery);
-    //        await page.pause() 
+    //        await page.pause()
     // sqlFilePath = "SQLResults/MasterPriceList/MasterPriceList.json";
     // results = await executeQuery(sqlQuery, sqlFilePath);
     // //const pacrId = results[0].pacr_id;
@@ -166,9 +174,9 @@ test.describe("MasterPrice Category", () => {
     //   "ORDER BY 1 DESC LIMIT 1";
     //   var sqlFilePath = "SQLResults/MasterPriceList/MasterPriceList.json";
     //   var results = await executeQuery(sqlQuery, sqlFilePath);
-
+ 
     // console.log("Master Price:  "+ sqlQuery);
-    //        await page.pause() 
+    //        await page.pause()
     // sqlFilePath = "SQLResults/MasterPriceList/MasterPriceList.json";
     // results = await executeQuery(sqlQuery, sqlFilePath);
     // //const pacrId = results[0].pacr_id;
@@ -195,7 +203,7 @@ test.describe("MasterPrice Category", () => {
       await page.waitForTimeout(2000)
       await masterPrice.clickDeleteButton()
       await masterPrice.confirmDelete()
-
+ 
     }
   });
 });

@@ -3,8 +3,8 @@ class TopBlueBar{
     {
         this.page=page
         this.btnBannerButton=page.getByLabel('Banner Button')
-        this.btn_BannerButtonKeyboadrArrow=page.locator('//button[@aria-label=\'KeyboardArrowDownIcon\']')
-        this.link_ViewAllContactDetails=page.getByTestId('View All Contact Details')
+        this.btn_BannerButtonKeyboadrArrow=page.locator("xpath=//button[@aria-label='KeyboardArrowDownIcon']")
+        this.link_ViewAllContactDetails=page.locator("xpath=//a[@aria-label='View All Contact Details']")
     }
     async ClickOnViewAllContactDetails()
     {

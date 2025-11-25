@@ -3,7 +3,7 @@ const fs = require('fs');
 const { config } = require('process');
 
 const XLSX = require('xlsx');
-const path = 'D:/Riomed/Cellma4Automation'
+const path = 'C:/Riomed/DemoServerAutomation/Cellma4Automation'
 
 module.exports = async config => {
   const browser=await chromium.launch({headless:false})

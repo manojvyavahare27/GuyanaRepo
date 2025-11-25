@@ -96,19 +96,19 @@ test.describe("Database Comparison Edit HP Diary", () => {
 
         
         await usersearch.clickOnSearchButton()
-       // await page.pause()
+        
         await usersearch.clickOnEditUser()    
         await page.waitForTimeout(3000)
         //await adduserwizard.toggleUserIsHP()    
         await adduserwizard.clickOnNext()
-        //await page.pause()
+     
         
         await sethpdairy.enterStartdate(jsonData.editHpDiary[index].hpd_start_date)
         await sethpdairy.enterEndDate(jsonData.editHpDiary[index].hpd_end_date)
         //await page.pause()
         await sethpdairy.clickOnSearchbutton()
         //await page.pause()
-      
+        
         await sethpdairy.clickOnHpSchedlue()
         await sethpdairy.clickOnClinicSchedule()
         await sethpdairy.clickOnCombinedSchedule()
@@ -122,8 +122,8 @@ test.describe("Database Comparison Edit HP Diary", () => {
         await sethpdairy.clickOnRepeatSchedule()
         // await sethpdairy.closeRepeatSchedulePopupPage()
         // await sethpdairy.clickOnRepeatSchedule()
+       
         await page.waitForTimeout(2000)
-        
         await sethpdairy.enterRepeatScheduleEndDate(jsonData.editHpDiary[index].RepeatScheduleEndDate)
         await sethpdairy.clickOnSaveForRepeatSchedule()
         //await expect(page.getByText('HP work schedule set successfully')).toHaveText('HP work schedule set successfully')
@@ -216,6 +216,12 @@ test.describe("Database Comparison Edit HP Diary", () => {
         );
       }
 
+      closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
         ////////////////// Hp Clinic Diary Leave //////////////////
         sqlQuery =
         "select * from hp_clinic_diary where hcd_esp_id = '" +
@@ -240,7 +246,13 @@ test.describe("Database Comparison Edit HP Diary", () => {
         );
       } ``
 
-     // await menu.clickOnLogout(page);
+      closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
+      //await menu.clickOnLogout(page);
         
     });
 

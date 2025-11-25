@@ -6,7 +6,6 @@ import { test, expect, Page, chromium } from "@playwright/test";
 const convertExcelToJson = require("../../../config/global-setupOptimized");
 const { executeQuery } = require("../../../databaseWriteFile");
 import compareJsons from "../../../compareFileOrJson";
-
 import LoginPage from "../../../Pages/BaseClasses/LoginPage";
 import Homepage from "../../../Pages/BaseClasses/Homepage";
 import Environment from "../../../Pages/BaseClasses/Environment";
@@ -73,7 +72,7 @@ test.describe("Database Comparison Add List Item", () => {
     await loginpage.enter_Password(jsonData.loginDetails[0].password);
     await page.waitForTimeout(1500);
     await loginpage.clickOnLogin();
-    //await page.pause()
+    
     await homepage.clickonSidebarHomeIcon();
 
     await homepage.clickOnUserIcon();
@@ -96,8 +95,6 @@ test.describe("Database Comparison Add List Item", () => {
     await usersearch.clickOnMedicalcategoryDisplayedNameLinking();
     await usersearch.clickOnCancelbutton();
 
-  //  await page.pause()
-
     await addtolistitem.selectListItemList();
     await addtolistitem.clickOnFilterButton();
     await addtolistitem.clickOnAddListItemsButton();
@@ -105,7 +102,7 @@ test.describe("Database Comparison Add List Item", () => {
     //AddToList
 
     await addtolistitem.selectDropdownFromService();
-  
+    //await page.pause()
     await addtolistitem.selectDropDownApplicationList();
     await addtolistitem.enterTextInTextBox(jsonData.addListItem[index].eli_text);
     await addtolistitem.enterTextInOtherLang(jsonData.addListItem[index].eli_text_other_lang);
@@ -120,10 +117,10 @@ test.describe("Database Comparison Add List Item", () => {
     await expect(page.getByText("List item added successfully")).toHaveText(
       "List item added successfully"
     );
-   
 
+   
     var sqlQuery ="select * from establishment_list_items where eli_text = '" +
-      jsonData.addListItem[index].eli_text +"' and eli_app_id = 111 order by eli_id desc limit 1";
+      jsonData.addListItem[index].eli_text +"' and eli_app_id = 228 order by eli_id desc limit 1";
     console.log(sqlQuery);
     var sqlFilePath = "SQLResults/UserDomain/listItemData.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -137,6 +134,15 @@ test.describe("Database Comparison Add List Item", () => {
     } else {
       console.log("\n Add List Item Comparision: Parameters from both JSON files do not match!\n");
     }
+
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
+
+     await menu.clickOnLogout(page);
 
     // await page.pause()
   });

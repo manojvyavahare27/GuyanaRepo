@@ -57,7 +57,7 @@ test.describe("Database Comparison Add New Referral", () => {
     await loginpage.clickOnLogin();
     await homepage.clickonSidebarHomeIcon();
     await homepage.clickOnSideIconStock()
-
+    await page.pause()
     await stockallLoc.clickOnShowHiddenLocationButton()
     await stockallLoc.clickOnDefaultStockLocation()
     await page.waitForTimeout(2000);
@@ -71,11 +71,11 @@ test.describe("Database Comparison Add New Referral", () => {
    await stockItemsFliters.selectFilter('All Stock')
    await stockItemsFliters.selectExpiringDate('Before Expiry Date')
    
-   await stockItemsFliters.selectFormulary('Automation formulary')
+   //await stockItemsFliters.selectFormulary('Automation formulary')
    await stockItemsFliters.enterItemName('Allopurinol 100mg tablets')
    await stockItemsFliters.clickSearchButton()
 
-    await stockItemsFliters.selectFormulary('Testing formulary')
+    //await stockItemsFliters.selectFormulary('Testing formulary')
     await stockItemsFliters.clearItemName()
    await stockItemsFliters.clickSearchButton()
  
@@ -142,9 +142,9 @@ test.describe("Database Comparison Add New Referral", () => {
    await addStockItems.enterRetailPrice(jsonData.EditStockItem[0].stbat_retail_price)
   
    await addStockItems.FillPositions1()
-   await addStockItems.FillPositions2()
-   await addStockItems.FillPositions3()
-   await addStockItems.FillPositions4()
+  //  await addStockItems.FillPositions2()
+  //  await addStockItems.FillPositions3()
+  //  await addStockItems.FillPositions4()
 
    await addStockItems.ClickOnSaveStockItemButton()
    await page.waitForTimeout(200)
@@ -163,7 +163,13 @@ test.describe("Database Comparison Add New Referral", () => {
         } else {
           console.log("\n Add New Stock Comparision: Parameters from both JSON files do not match!\n");
         }
-   
+
+    closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
    await addStockItems.clickOnLogout(page)
    //await addStockItems.enterPurchaseRate('5.00')
 

@@ -76,7 +76,6 @@ test.describe("Database Comparison Add New Referral", () => {
    await stockItemsFliters.enterItemName('Allopurinol 100mg tablets')
    await stockItemsFliters.clickSearchButton()
    
-   //await page.pause()
     await stockItemsFliters.selectFormulary('Testing formulary')
     await stockItemsFliters.clearItemName()
    await stockItemsFliters.clickSearchButton()
@@ -109,17 +108,18 @@ test.describe("Database Comparison Add New Referral", () => {
 
     //check for Batch Id
 
-    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/StockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
     const stbat_id = results[0].stbat_id;
     console.log("Stock Item bat_id is: " + stbat_id);
     
+    
 
     //check for Increment Db comparsion
 
-    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, sb.stbat_batch_change_type, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, sb.stbat_batch_change_type, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = " + stbat_id + " ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/BatchIncrementDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -133,6 +133,12 @@ test.describe("Database Comparison Add New Referral", () => {
     }
 
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
 
 
 
@@ -154,7 +160,7 @@ test.describe("Database Comparison Add New Referral", () => {
 
     //check for Decrement Db comparsion
 
-    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, sb.stbat_batch_change_type, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, sb.stbat_batch_change_type, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = " + stbat_id + " ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/BatchDecrementDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -167,6 +173,12 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Check Approved status Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
 
    await page.waitForTimeout(500) 
    await addStockItems.clickOnLogout(page)

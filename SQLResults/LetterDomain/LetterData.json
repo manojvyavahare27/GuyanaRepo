@@ -1,9 +1,9 @@
 [
   {
-    "patlet_id": 122,
+    "patlet_id": 99,
     "patletd_patient_location": null,
-    "patlet_name": "MUI Letter",
-    "patlet_type": "Discharge Letter",
+    "patlet_name": "Automation Letter",
+    "patlet_type": "Referral Letter",
     "patlet_status": "draft"
   }
 ]

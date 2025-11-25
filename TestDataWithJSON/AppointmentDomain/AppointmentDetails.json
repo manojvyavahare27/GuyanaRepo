@@ -2,7 +2,7 @@
   "loginDetails": [
     {
       "username": "manoj.auto",
-      "password": "Manoj@2024"
+      "password": "Manoj@2025"
     },
     {
       "username": "prerelease.auto",
@@ -18,12 +18,12 @@
   ],
   "addPatient": [
     {
-      "pat_hospital_ref": "HospLin080",
-      "pat_title": "B/O",
-      "pat_firstname": "AppLinuxBG",
-      "pat_surname": "Marathi",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_hospital_ref": "hospDemoAp10",
+      "pat_title": "Mr",
+      "pat_firstname": "RegRanjeeth",
+      "pat_surname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
       "pat_occupation": "Trainer",
@@ -53,10 +53,10 @@
     {
       "pat_hospital_ref": "AutoHosp109",
       "pat_title": "B/O",
-      "pat_firstname": "AppLinuxBG",
-      "pat_surname": "Marathi",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_firstname": "RegRanjeeth",
+      "pat_surname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pat_marital_status": "Single",
       "pat_ethnicity_text": "Indian",
       "pat_occupation": "Trainer",
@@ -84,16 +84,16 @@
   ],
   "patientIdentifier": [
     {
-      "pat_firstname": "AppLinuxBG",
-      "pat_lastname": "Marathi",
-      "pat_sex": "Male",
-      "pat_dob": "22/09/2023",
+      "pat_firstname": "RegRanjeeth",
+      "pat_lastname": "riomed",
+      "pat_sex": "M",
+      "pat_dob": "01/01/2000",
       "pid_value1": 8962845424,
       "pid_value2": "Ind009",
       "pat_country": "India",
       "pat_title": "B/O",
       "pat_middlename": "Martin",
-      "add_email": "AppLinuxBG_Marathi@Gmail.com"
+      "add_email": "RegRanjeeth.riomed@Gmail.com"
     }
   ],
   "tempAddress": [
@@ -106,7 +106,7 @@
       "add_address6": "India",
       "add_phone": 8888888800,
       "add_mobile": 9762713710,
-      "add_email": "Mumbai_SaiCapital@gmail.com",
+      "add_email": "Mumbai.SaiCapital@gmail.com",
       "add_fax": 8181808080,
       "add_work_phone": 666999,
       "add_iso_country_code": 91,
@@ -125,7 +125,7 @@
       "add_address6": "India",
       "add_phone": 7700770077,
       "add_mobile": 9762713710,
-      "add_email": "Mumbai_SaiCapital@gmail.com",
+      "add_email": "Mumbai.SaiCapital@gmail.com",
       "add_fax": 112233,
       "add_work_phone": 9890098900,
       "add_iso_country_code": 91,
@@ -249,19 +249,19 @@
       "egp_gp_code": "GP0001",
       "egp_pct_code": "GPPCT0001",
       "egp_gmc_code": "GPGMC0001",
-      "egp_fullname": "ANUMBA"
+      "egp_fullname": "Vincent"
     }
   ],
   "addEditAppointments": [
     {
-      "rea_date": "20/11/2025",
-      "rea_edited_date": "20/11/2025",
-      "rea_time": "11:15:00",
-      "rea_edited_time": "09:00 AM",
-      "convertedTime": "11:15 AM",
+      "rea_date": "18/11/2025",
+      "rea_edited_date": "18/11/2025",
+      "rea_time": "10:30:00",
+      "rea_edited_time": "09:45 AM",
+      "convertedTime": "10:30 AM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
-      "rea_duration": 15,
+      "rea_duration": 10,
       "rea_type": "new",
       "reaType": "New",
       "rea_review_reason": "Appointment Reason for Testing",
@@ -269,20 +269,20 @@
       "rea_triage": 1,
       "rea_clinic_type": "Cardiology Clinic",
       "rea_cancelled_reason": "App Cancel for Testing Reason",
-      "rea_slot_duration": 15,
+      "rea_slot_duration": "15",
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "11:30:00",
+      "rea_end_time": "10:45:00",
       "rea_special": "All Specialties",
-      "rea_hp_name_link": "Mr Saurabh Riomed"
+      "rea_hp_name_link": "Mr Manoj Automation"
     }
   ],
   "bookNewAppointments": [
     {
-      "rea_date": "20/11/2025",
-      "rea_time": "08:00:00",
-      "convertedTime": "08:00 AM",
+      "rea_date": "18/11/2025",
+      "rea_time": "08:15:00",
+      "convertedTime": "08:15 AM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 15,
@@ -296,16 +296,16 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "08:15:00",
+      "rea_end_time": "08:30:00",
       "rea_special": "All Specialties",
-      "rea_hp_name_link": "Mr Saurabh Riomed"
+      "rea_hp_name_link": "Mr Manoj Automation"
     }
   ],
   "CancelBookAppointment": [
     {
-      "rea_date": "20/11/2025",
-      "rea_time": "00:30:00",
-      "convertedTime": "12:30 AM",
+      "rea_date": "18/11/2025",
+      "rea_time": "11:30:00",
+      "convertedTime": "11:30 AM",
       "rea_status": "cancelled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 15,
@@ -320,14 +320,14 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "00:45:00",
+      "rea_end_time": "11:45:00",
       "rea_special": "All Specialties",
-      "rea_hp_name_link": "Mr Saurabh Riomed"
+      "rea_hp_name_link": "Mr Manoj Automation"
     }
   ],
   "nextAvailAppointments": [
     {
-      "rea_date": "20/11/2025",
+      "rea_date": "18/11/2025",
       "rea_edited_date": "02/12/2023",
       "rea_time": "09:00:00",
       "convertedTime": "09:00 AM",
@@ -348,7 +348,7 @@
       "rea_patient_type": "Regular",
       "rea_end_time": "09:15:00",
       "rea_special": "All Specialties",
-      "rea_hp_name_link": "Mr Saurabh Riomed"
+      "rea_hp_name_link": "Mr Manoj Automation"
     }
   ],
   "prvAppointments": [
@@ -366,17 +366,17 @@
       "prv_record_status": "approved",
       "prv_created_by": "thayne.auto",
       "prv_region_eli_text": "All Teams",
-      "prv_speciality_eli_text": "Cardiology"
+      "prv_speciality_eli_text": "General Medicine"
     }
   ],
   "rescheduleAppointments": [
     {
-      "rea_date": "20/11/2025",
-      "rea_edited_date": "20/11/2025",
-      "rea_time": "15:30:00",
-      "rea_edited_time": "16:30:00",
-      "convertedTime": "03:30 PM",
-      "convertedEditedTime": "04:30 PM",
+      "rea_date": "18/11/2025",
+      "rea_edited_date": "18/11/2025",
+      "rea_time": "11:15:00",
+      "rea_edited_time": "12:00:00",
+      "convertedTime": "11:15 AM",
+      "convertedEditedTime": "12:00 PM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 15,
@@ -391,15 +391,15 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "15:45:00",
+      "rea_end_time": "11:30:00",
       "rea_special": "All Specialties",
-      "rea_hp_name_link": "Mr Saurabh Riomed"
+      "rea_hp_name_link": "Mr Manoj Automation"
     }
   ],
   "serviceAppointments": [
     {
-      "serviceStartDate": "25/07/2025",
-      "serviceEndDate": "10/08/2025",
+      "serviceStartDate": "26/12/2023",
+      "serviceEndDate": "27/12/2023",
       "rea_id": 8067,
       "rea_pat_id": 786871,
       "rea_sgr_id": 24507,
@@ -428,7 +428,7 @@
       "rea_clinic_type_eli_id": 6903,
       "rea_region_eli_id": 6910,
       "rea_region_eli_text": "HP Region1",
-      "rea_updated": "20/11/2025",
+      "rea_updated": "18/11/2025",
       "rea_updated_by": "thayne.auto",
       "rea_patient_type": "Regular",
       "rea_end_time": "07:35:00"
@@ -518,7 +518,7 @@
     {
       "ars_record_status": "wrong",
       "aps_record_status": "wrong",
-      "aps_deleted": "20/11/2025",
+      "aps_deleted": "18/11/2025",
       "aps_deleted_by": "thayne.auto",
       "aps_end_date": "30/05/2025"
     }

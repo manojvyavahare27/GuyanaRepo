@@ -4,10 +4,7 @@ class AddToListItem
     {
         this.page=page
         //this.DropdownListItemList=page.getByLabel('Choose')
-        
-        // this.DropdownListItemList=page.getByRole('button', { name: 'Open' })
-
-        this.DropdownListItemList=page.locator("xpath=//input[@id='eliAppId']")
+        this.DropdownListItemList=page.getByRole('button', { name: 'Open' })
 
         this.btnFilter=page.getByTestId('Filter')
         this.btnAddListItems=page.getByTestId('Add List Item')

@@ -75,8 +75,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
         await loginpage.enter_Password(jsonData.loginDetails[0].password);
         await page.waitForTimeout(1500);
         await loginpage.clickOnLogin()
-       // await expect(page.getByText('Login success')).toHaveText('Login success')
-       
+        //await expect(page.getByText('Login success')).toHaveText('Login success')
         await homepage.clickonSidebarHomeIcon()
         await homepage.clickOnSidebarAppointmentIcon()     
         await patientsearch.clickonBackButton()
@@ -87,11 +86,12 @@ test.describe("Database Comparison Add Edit Patient", () => {
         await provisionalapp.clickOnAllLinks()
         await provisionalapp.clickOnProvisionalApp()
 
+        //await page.pause()
         //Search for Patient
         await patientsearch.enterGivenName(jsonData.addPatient[index].pat_firstname);
         await patientsearch.enterFamilyName(jsonData.addPatient[index].pat_surname);
         await patientsearch.selectSex(jsonData.addPatient[index].pat_sex);
-        await patientsearch.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref);
+       // await patientsearch.enterHospitalRef(jsonData.addPatient[index].pat_hospital_ref);
         await patientsearch.clickOnSearchbtnOnPopup()   
         await expect(page.getByText('Patient list found')).toHaveText('Patient list found') 
         await patientsearch.clickOnSearchPatientLink()
@@ -175,6 +175,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
         await expect(page.getByText('Appointment Confirmation Start Date Required')).toHaveText('Appointment Confirmation Start Date Required')
         await expect(page.getByText('Appointment Confirmation End Date Required')).toHaveText('Appointment Confirmation End Date Required')
         await provisionalapp.selectAppType(jsonData.prvAppointments[index].prv_type_entry)
+        await page.pause()
         await provisionalapp.selectSpeciality(jsonData.prvAppointments[index].prv_speciality_eli_text)
         await provisionalapp.selectClinicType(jsonData.prvAppointments[index].prv_clinic_type_eli_text)
         await provisionalapp.selectClinicLocation(jsonData.prvAppointments[index].prv_clinic_location_eli_text)   

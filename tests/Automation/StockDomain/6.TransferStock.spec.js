@@ -88,15 +88,12 @@ test.describe("Database Comparison Add New Referral", () => {
     await stockItemsFliters.clickSearchButton()
 
 
-   
     //Add New Medication
     await stockItemsFliters.enterItemName(jsonData.AddNewStock[0].stock_name)
     await stockItemsFliters.clickSearchButton()
- 
     await page.waitForTimeout(1000)
     await addStockItems.clickOnExpandsDefaultPharmacy()   
     await stockallLoc.clickOnTransferLink()
-   
     //await addStockItems.clickOnStockBatchLink(page,jsonData.AddNewStock[0].stbat_batch_number)
     await stockTransferPopUp.selectLocationToTransferTo()
     await stockTransferPopUp.enterQuantityToTransfer('45')
@@ -104,13 +101,10 @@ test.describe("Database Comparison Add New Referral", () => {
     await page.waitForTimeout(200)
     await expect(page.getByText('Stock transfer requested')).toHaveText('Stock transfer requested')
 
-           
-   
-
-
+    
     //DB for Select Transfer quantity
 
-    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+    var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/StockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -123,6 +117,18 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Add New Stock Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
+
+
+
+
+
+   
     await stocksidebar.clickOnManageStockTab()
     await stocksidebar.clickOnTransferLink()
 
@@ -138,7 +144,7 @@ test.describe("Database Comparison Add New Referral", () => {
 
     //Check Approved status after click on save checklist
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/StockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -151,6 +157,13 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Check Approved status Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
+
 
     await stockTransferPage.enterPickedQuantity()
     await stockTransferPage.clickOnCreatePickListButton()
@@ -160,7 +173,7 @@ test.describe("Database Comparison Add New Referral", () => {
     
     //Check Approved status after click on save checklist
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/StockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -173,13 +186,18 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Check Picklist Status Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
+
     await stockTransferPage.clickOncheckBox()
     await stockTransferPage.clickOnDispatchOrderButton()
     await page.waitForTimeout(1000)
     await stockTransferPage.clickOnOkbutton()
     await page.waitForTimeout(2000)
-
-    
     //await expect(page.getByText('Only items with transferred status will be dispatched.')).toHaveText('Only items with transferred status will be dispatched.')
     await stockTransferPage.clickOnSaveButton()   
     //await stockTransferPage.clickOnOkbutton()
@@ -188,13 +206,13 @@ test.describe("Database Comparison Add New Referral", () => {
     await page.waitForTimeout(2000)
     await processDispatchOrderPopup.clickOnCreateDispatchOrderButtonFromPopUp()
 
-    //await expect(page.getByText('Item successfully received')).toHaveText('Item successfully received')
+    ///await expect(page.getByText('Item successfully received')).toHaveText('Item successfully received')
     await processDispatchOrderPopup.clickOncloseIcon()
     
     //check Dispatch Status    
     //Check Dispatch status after click on Create dispatch order
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/StockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -207,6 +225,12 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Check Dispatch Status Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
 
     await addStockItems.clickOnLogout(page)
 
@@ -239,10 +263,10 @@ test.describe("Database Comparison Add New Referral", () => {
     //await stocksidebar.clickOnManageStockTab()
 
     //check approved Status
-    
+      
     //Check approved status after click receive item into another location
 
-     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 773 ORDER BY cst.sttra_id DESC LIMIT 1;"
+     var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"
     console.log(sqlQuery)
     var sqlFilePath = "SQLResults/StockDomain/StockItemDetails.json";
     var results = await executeQuery(sqlQuery, sqlFilePath);
@@ -255,6 +279,12 @@ test.describe("Database Comparison Add New Referral", () => {
       console.log("\n Check Dispatch Status Comparision: Parameters from both JSON files do not match!\n");
     }
 
+     closeConnection: (connection) => {
+        if (connection && connection.end) {
+            connection.end();
+            console.log('Database connection closed manually.');
+        }
+    }
     await page.waitForTimeout(1000)
     await stocksidebar.clickOnSearchAndAddStockLink()
     await page.waitForTimeout(1000)

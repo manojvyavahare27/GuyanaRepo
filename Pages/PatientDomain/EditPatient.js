@@ -6,7 +6,7 @@ class EditPatient
         this.tab_PatientDetails=page.getByTestId('Patient Details')
         this.tab_PatientAddress=page.getByRole('tab', { name: 'Patient Address' })
         this.tab_PatientPIP=page.getByTestId('Patient PIP')
-        this.tab_PatientGP=page.locator("xpath=//button[@data-testid='Patient GP']")
+        this.tab_PatientGP=page.getByRole('tab', { name: 'Patient GP' })
         this.tab_PrintIdCard=page.locator("xpath=//button[@data-testid='Print ID Card']")
         this.btn_PatientDetailsSave=page.getByTestId('Save')
         this.dropdowninterpreterNeeded=page.getByTestId('Interpreter Needed').getByRole('button', { name: '​' })
@@ -18,9 +18,9 @@ class EditPatient
         this.link_PrintIdCard=page.getByTestId('Print Id Card')
         this.btn_FindGP=page.getByTestId('Find GP')
 
-        this.btn_PatientPIPExportList=page.locator("xpath=//button[@data-testid='Export List']")
+        this.btn_PatientPIPExportList=page.getByTestId('Export List')
         //this.link_ViewPIP=page.getByTestId('View')
-        this.link_ViewPIP=page.locator("xpath=//a[@aria-label='View']")
+        this.link_ViewPIP=page.locator("xpath=//a[@data-testid='View']")
         this.txtbox_SearchGP=page.getByTestId('Search')
         this.btn_ClosePIPAddPopup=page.getByTestId('CancelIcon')
         this.btn_ClosePIPAddressPopup=page.getByTestId('CancelIcon')
@@ -35,7 +35,7 @@ class EditPatient
         
        //this.linkView
         //All Links under Links on Edit Patient page
-        this.link_Links=page.locator("xpath=//button[@data-testid='links']")
+          this.link_Links=page.locator("xpath=//button[@data-testid='links']")
         this.link_Death=page.locator("xpath=//li[@data-testid='deathLink']")
         this.link_Appointments=page.getByRole('heading', { name: 'Appointments' })
         this.link_Consent=page.getByRole('heading', { name: 'Consent' })
@@ -57,7 +57,7 @@ class EditPatient
 
         //Patient Details
 
-         this.dropdown_CurrentlyPregnant=page.getByTestId('Currently Pregnant').getByRole('button', { name: '​' })
+        this.dropdown_CurrentlyPregnant=page.getByTestId('Currently Pregnant').getByRole('button', { name: '​' })
         this.txtbox_CountyOfBirth=page.getByTestId('County Of Birth')
         this.dropdown_Sex=page.locator("xpath=//input[@id='sex']")
         this.dropdown_Ethnicity=page.locator("xpath=//input[@id='ethnicity']")

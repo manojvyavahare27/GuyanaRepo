@@ -7,25 +7,24 @@ class Demographics{
         this.Btn_SaveConsentForphotographcs=page.getByTestId('Save')
 
         //Links
-        this.link_Links=page.locator("xpath=//button[@data-testid='links']")
+       this.link_Links=page.locator("xpath=//button[@data-testid='links']")
         this.link_Details=page.locator("xpath=//li[@data-testid='detailsLink']")
         this.link_PatientId=page.locator("xpath=//li[@data-testid='patientIdLink']")
         this.link_PIP=page.getByRole('heading', { name: 'Patient Interested Parties' })
         this.link_QAndA=page.locator("xpath=//li[@data-testid='patientQuestionLink']")
         this.link_Summary=page.getByTestId('Summary').getByRole('heading', { name: 'Summary' })
-        this.link_WorkList=page.locator("xpath=//li[@data-testid='worklistLink']")
-        this.link_TestPatient=page.locator("xpath=//li[@data-testid='testLink']")
-        this.dropdown_TestPatient=page.locator("xpath=//input[@id='testPatient']")
+        this.link_WorkList=page.getByRole('heading', { name: 'Worklist' })
+        this.link_TestPatient=page.getByRole('heading', { name: 'Test' })
+        this.dropdown_TestPatient=page.locator("xpath=//div[@data-testid='Test Patient']")
 
         this.btn_ClosePopups=page.getByTestId('CancelIcon')
 
-        //Expands Patient Details on demographics page
         //Expands Patient Details on demographics page
         this.expand_PatientInformation=page.locator("xpath=//button[@data-testid='Patient Information']")
         this.expand_PatientIdentifier=page.locator("xpath=//button[@data-testid='Patient Identifier']")
         this.expand_PatientAddress=page.locator("xpath=//button[@data-testid='Patient Address']")
         this.expand_PatientPIP=page.locator("xpath=//button[@data-testid='Patient Interested Parties']")
-        this.expand_PatientGP=page.locator("xpath=//button[@data-testid='Patient Gp']")      
+        this.expand_PatientGP=page.locator("xpath=//button[@data-testid='Patient Gp']")    
         
     }
     async ClickOnExpandsPatientInformation()
@@ -97,7 +96,7 @@ class Demographics{
     {
         await this.dropdown_TestPatient.click()
         await this.page.getByRole('option', { name: 'No' }).click()
-        await this.page.locator("xpath=//button[@data-testid='Set']").click()
+        await this.page.getByTestId('Set').click()
     }
 
     async SelectRadioButtonForConsentForPhotographcsNo()

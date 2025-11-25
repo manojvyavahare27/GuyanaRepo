@@ -6,11 +6,10 @@ class Homepage{
         this.sidebarPatientIcon=page.locator("xpath=//img[@alt='Patients Image Avatar']")
         this.iconHomePage=page.locator("xpath=//img[@alt='homeDashboard']")
         this.iconAppointment=page.locator("xpath=//div[@data-testid='Appointments']")
-        this.pharmacyIcon=page.locator("xpath=//div[@data-testid='Pharmacy']")
-
-        
+        this.pharmacyIcon=page.locator("xpath=//div[@data-testid='moduleDrawerPharmacy']")
         this.drawerHeader=page.locator("xpath=//div[@data-testid='DrawerHeader']")
-        this.addAppLink=page.locator("xpath=//h1[text()='Add Appointments']")
+        this.addapplink=page.locator("xpath=//h1[normalize-space(.)='Add Appointments']")
+
         
         this.iconReferral=page.getByRole('heading', { name: 'Referrals' })
         this.iconMDT=page.getByRole('heading', { name: 'MDT' })
@@ -21,7 +20,7 @@ class Homepage{
         //PharmacyHomePage
         this.findPatientSidebarLink=page.locator("xpath=//h1[normalize-space()='Find Patient']")
         this.Medicationsidebar=page.locator("xpath=//h1[normalize-space()='Medications']")
-        this.AddMedicationlink=page.getByRole('button', { name: 'Add' })
+        this.AddMedicationlink=page.locator("xpath=//h1[text()='Add']")
         this.ContacHistorycategory=page.locator("xpath=//h1[contains(text(),'Contact History')]")
 
 
@@ -185,20 +184,17 @@ class Homepage{
         await this.iconPatient.click()
     }
     
-
+    async clickOnHomePageIcon()
+    {
+        await this.iconHomePage.click()
+    }
     async clickOnDrawerHeader()
     {
         await this.drawerHeader.click()
     }
-    async clickOnAddappLink()
+    async clickOnAddAppointmentlink()
     {
-        await this.addAppLink.click()
-    }
-
-
-    async clickOnHomePageIcon()
-    {
-        await this.iconHomePage.click()
+        await this.addapplink.click()
     }
     async clickOnAppointmentIcon()
     {

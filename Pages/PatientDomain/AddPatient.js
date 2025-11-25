@@ -3,47 +3,7 @@ class AddPatient
     constructor(page)
     {
         this.page=page
-        // this.dropdown_PtnameinOtherLang=page.getByTestId('Pt name in other language')
-        // this.dropdown_marrital_status=page.locator("xpath=//input[@id='maritalStatus']")
-        // this.dropdown_sexualorientation=page.locator("xpath=//div[@id='mui-component-select-patSexualOrientationEliId']")
-        // this.dropdown_CurrentlyPregnant=page.getByTestId('Currently Pregnant').getByRole('button', { name: '​' })
-        // this.dropdown_ethnicity=page.locator("xpath=//div[@id='mui-component-select-patEthnicityText']")
-        // this.dropdown_occupation=page.locator("xpath=//div[@id='mui-component-select-patOccupation']")
-        // this.dropdown_religion=page.locator("xpath=//div[@id='mui-component-select-patReligion']")
-        // this.txtbox_townofbirth=page.locator("xpath=//input[@id='Town Of Birth']")
-        // this.txtbox_countyofbirth=page.locator("xpath=//input[@id='County Of Birth']")
-        // this.dropdown_countryofbirth=page.locator("xpath=//div[@id='mui-component-select-patCountryOfBirth']")
-        // this.dropdown_nationality=page.locator("xpath=//div[@id='mui-component-select-patNationality']")
-        // this.dropdown_regdisable=page.locator("xpath=//div[@id='mui-component-select-patRegisteredDisabled']")
-        // this.dropdown_primarydisablity=page.getByTestId('Primary Disability').getByRole('button', { name: '​' })
-        // this.txtbox_assistanceneeded=page.locator("xpath=//input[@aria-label='Assistance Needed']")
-        // this.txtbox_DisabilityNotes=page.locator("xpath=//input[@id='Disability Note']")
-        // this.dropdown_Language=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patLanguage']")
-        // this.dropdown_interpreterneeded=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patNeedInterpreterAtAppointments']")
-        // this.dropdown_interpretertype=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patInterpreterTypeEliId']")
-        // this.txtbox_NHSNo=page.getByTestId('NHS.No')
-        // this.txtbox_hospitalref=page.locator("xpath=//input[@data-testid='Hospital Ref']")
-        // this.txtbox_Identifier=page.getByTestId('Identifier')
-        // this.txtbox_PasId=page.getByTestId('PAS ID')
-        // this.dropdownPatientType=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patType']")
-        // this.dropdown_Prisoner=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patPrisoner']")
-        // this.dropdown_BloodType=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patBloodGroup']")
-        // this.dropdown_Restricted_Registration=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patBanned']")
-        // this.dropdown_Patientwebregistration=page.locator("xpath=//div[@aria-labelledby='mui-component-select-patRegisteredWithPatientweb']")
-        // this.checkbox_LockPatientWebAccount=page.getByRole('checkbox', { name: 'Lock Patient Web Account' })
-        // this.link_ResetPassword=page.getByTestId('Reset Password')
-        // this.txtbox_Notes=page.locator("xpath=//textarea[@aria-label='Notes']")
-        // this.btn_Next=page.getByTestId('Next')
-        // this.btn_Save=page.getByTestId('Save')   
-        
-        // //Add Identifier
-        // this.btnAddPatientIdentifier=page.getByTestId('Add Patient Unique Identifier')
-        // this.dropdownUniqueIdentifier=page.getByTestId('Unique Identification').getByLabel('​', { exact: true })
-        // this.txtboxIdentifierNumber=page.locator('#numberUnique')
-        // this.dropdownCountry=page.locator('#mui-component-select-issuingCountry').first()
-        // this.btnAddUniqueIdentfier=page.getByTestId('Add').first()
-
-        this.dropdown_PtnameinOtherLang=page.getByTestId('Pt name in other language')
+       this.dropdown_PtnameinOtherLang=page.getByTestId('Pt name in other language')
         //this.dropdown_marrital_status=page.getByTestId('Marital Status').getByLabel('​', { exact: true })
          this.dropdown_marrital_status=page.locator("xpath=//input[@id='maritalStatus']")
           this.dropdown_sexualorientation=page.locator("xpath=//input[@id='sexualOrientation']")
@@ -92,7 +52,7 @@ class AddPatient
         this.link_ResetPassword=page.getByTestId('Reset Password')
         this.txtbox_Notes=page.locator("xpath=//textarea[@aria-label='Notes']")
         this.btn_Next=page.getByTestId('Next')
-        this.btn_Save=page.locator("xpath=//button[@data-testid='Save']") 
+        this.btn_Save=page.getByTestId('Save')   
         
         //Add Identifier
         this.btnAddPatientIdentifier=page.getByTestId('Add Patient Unique Identifier')
@@ -204,7 +164,6 @@ class AddPatient
         await this.dropdown_interpretertype.click()
         await this.page.getByRole('option', { name: 'Whisper', exact: true }).click()
     }
-    
     async enterNHSNo(NHSNo)
     {
         await this.txtbox_NHSNo.type(NHSNo)
@@ -246,7 +205,7 @@ class AddPatient
 
     async selectPatientWebRegistration()
     {
-        await this.dropdown_Patientwebregistration.click()
+         await this.dropdown_Patientwebregistration.click()
         await this.page.getByRole('option', { name: 'No' }).click()
     }
     async enterNotes(pat_notes)
