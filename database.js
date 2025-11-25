@@ -1,44 +1,31 @@
 const mysql = require('mysql');
 const fs = require('fs');
 
-///>>>>>>> 5edb7df293326853c5834340af5e2940d710cf35
 // MySQL database configuration
 const dbConfig = {
-    ///// host: "10.0.0.64",
-   /// // user: "ManojV.cellmaapi",
-   /// // password: "Welcome@123",
-   //// // port:3310,
-   /// // database: "cellma4_api",
-   /// // connectionLimit: 10
+    // host: "10.0.0.64",
+    // user: "ManojV.cellmaapi",
+    // password: "Welcome@123",
+    // port:3310,
+    // database: "cellma4_api",
+    // connectionLimit: 10
 
-
-   //Below code is for Pre-release server
-    host: "10.0.0.16",
-    user: "cellma4_api_user",
-    password: "Welcome@123",
-    port:3314,
-    //database: "cellma4_api",
-    database: "cellma4_pre_release",
-    connectionLimit: 10
-
-
-    //Active code for regression server
-	// host: "10.0.0.16",
-  // user: "admin",
+  //  host: "10.0.0.72",
+  //   user: "Manoj.vyavahare",
   //   password: "Welcome@123",
   //   port:3314,
+  //   //database: "cellma4_api",
   //   database: "cellma4_loadtesting_9sep25",
   //   connectionLimit: 10
 
-
-    //Activate below code for Linux server execution.
-    // host: "10.0.0.38",
-    // user: "ManojV.C4",
-    // password: "Welcome@1234",
-    // port:3310,
-    // //database: "cellma4_api",
-    // database: "cellma4_api_14oct2025",
-    // connectionLimit: 10
+  //Regression DB for 16
+	host: "10.0.0.16",
+    user: "Manoj.vyavahare",
+    password: "Welcome@123",
+    port:3314,
+    //database: "cellma4_api",
+    database: "cellma4_loadtesting_9sep25",
+    connectionLimit: 10
 };
 
 const connection = mysql.createConnection(dbConfig);
