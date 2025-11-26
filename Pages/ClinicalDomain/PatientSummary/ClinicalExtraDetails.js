@@ -256,9 +256,76 @@ class ClinicalExtraDetails {
     );
     this.saveCategoryExtraDetails = page.locator("xpath=//button[@aria-label='saveCategoryExtraDetails']");
     this.saveCustomizableViewbutton=page.locator("xpath=//button[@aria-label='saveExtraDetails']")
+  
+    /////Variable Dosing////
+  this.medicationDosingLink = page.locator("//a[@data-testid='Medication Dosing']");
+  this.addVariableDosingLink = page.locator("//a[@data-testid='Add Variable Dosing']");
+  this.variableProduct0Input = page.locator("//input[@id='variableProduct-0']");
+  this.variableDose0Input = page.locator("//input[@id='variableDose-0']");
+  this.variableForm0Input = page.locator("//input[@id='variableForm-0']");
+  this.variableRoute0Input = page.locator("//input[@id='variableRoute-0']");
+  this.variableFrequency0Input = page.locator("//input[@id='variableFrequency-0']");
+  this.variableDuration0Input = page.locator("//input[@id='variableDuration-0']");
+  this.variableUnits0Input = page.locator("//input[@id='variableUnits-0']");
+  this.variableDosingInstructionTextarea = page.locator("//textarea[@id='variableDosingInstruction']");
+  this.setButton = page.locator("//button[@data-testid='Set']");
+  this.cellmaAccordionIconButton = page.locator("//button[@aria-label='cellmaAccordionIcon']");
+ 
   }
 
+////// Variable Dosing/////
+ async clickOnMedicationDosingLink()
+ {
+  await clickElement(this.page, this.medicationDosingLink);
+ }
+async clickOnAddVariableDosingLink()
+ {
+  await clickElement(this.page, this.addVariableDosingLink);
+ }
+
+ async EnterVariableDose0Input(dose) {
+    await typeText(this.page, this.variableDose0Input, '1');
+  }
+async EnterVariableForm0Input(form) {
+    await typeText(this.page, this.variableForm0Input, 'Tablet');
+  }
+
+  async SelectVariableRoute0Input(route) {
+    await selectFromDropdown(
+      this.page,
+      this.variableRoute0Input,
+      'By Mouth'
+    );}
+
+    async SelectvariableFrequency0Input(route) {
+    await selectFromDropdown(
+      this.page,
+      this.variableRoute0Input,
+      'At Night'
+    );}
+   async EnterVariableDuration0Input(duration) {
+    await typeText(this.page, this.variableDuration0Input, '2');
+  }
+
+async SelectVariableUnits0Input(unit) {
+    await selectFromDropdown(
+      this.page,
+      this.variableUnits0Input,
+      'Days'
+    );}
+
+     async EnterVariableDosingInstructionTextarea(notes) {
+    await typeText(this.page, this.variableDosingInstructionTextarea, 'Variable Dosing');
+  }
+async clickOnSetButton()
+ {
+  await clickElement(this.page, this.setButton);
+ }
+
+
   //////////////////////////////////TEXTBOX FILLERS//////////////////////////////////////////
+
+
 
   //Fill Outcome Date
   async enterDateOfOutcome(outc_date) {
