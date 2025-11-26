@@ -23,9 +23,9 @@
   ],
   "addPatient": [
     {
-      "pat_hospital_ref": "hospRegPt60",
+      "pat_hospital_ref": "hospRegPt64",
       "pat_title": "Mr",
-      "pat_firstname": "demoARW",
+      "pat_firstname": "demoBCA",
       "pat_surname": "riomed",
       "pat_sex": "M",
       "pat_dob": "01/01/2000",
@@ -43,7 +43,7 @@
       "pat_currently_pregnant_yes": "No",
       "pat_currently_pregnant": 0,
       "pat_language": "English",
-      "pat_temp_address_start": 45969,
+      "pat_temp_address_start": 45987,
       "pat_country_of_birth": "India",
       "pat_gender_at_birth": "M",
       "pat_nationality": "Indian",
@@ -58,7 +58,7 @@
     {
       "pat_hospital_ref": "AutoHosp109",
       "pat_title": "B/O",
-      "pat_firstname": "demoARW",
+      "pat_firstname": "demoBCA",
       "pat_surname": "riomed",
       "pat_sex": "M",
       "pat_dob": "01/01/2000",
@@ -89,7 +89,7 @@
   ],
   "patientIdentifier": [
     {
-      "pat_firstname": "demoARW",
+      "pat_firstname": "demoBCA",
       "pat_lastname": "riomed",
       "pat_sex": "M",
       "pat_dob": "01/01/2000",
@@ -98,7 +98,7 @@
       "pat_country": "India",
       "pat_title": "B/O",
       "pat_middlename": "Martin",
-      "add_email": "demoARW.riomed@Gmail.com"
+      "add_email": "demoBCA.riomed@Gmail.com"
     }
   ],
   "tempAddress": [
@@ -440,12 +440,12 @@
   ],
   "patDetails": [
     {
-      "pat_hospital_ref": "hospRegPt60",
+      "pat_hospital_ref": "hospRegPt64",
       "pat_dod": "29/10/2023",
       "pat_tod": "00:11",
       "pat_dead_confirmation_status": "confirmed",
       "pat_death_notes": "Added For Testing",
-      "pat_firstname": "demoARW",
+      "pat_firstname": "demoBCA",
       "pat_surname": "riomed"
     }
   ],
@@ -488,7 +488,7 @@
       "meded_value_Administrator": "Administrator",
       "meded_value_PGD": "PGD",
       "meded_value_MaxReffills": "5",
-      "meded_value_Unit": "Tab",
+      "meded_value_Unit": "Days",
       "meded_value_Quantity": "3",
       "meded_value_Adherent": "Adherent"
     },

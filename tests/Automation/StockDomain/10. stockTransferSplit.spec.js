@@ -170,6 +170,13 @@ test.describe("Database Comparison Add New Referral", () => {
 
     //Check Picklist Status.
     
+
+
+
+
+
+
+    
     //Check Approved status after click on save checklist
 
      var sqlQuery = "SELECT sb.stbat_id,sb.stbat_batch_number, cst.sttra_quantity, cst.sttra_request_type, cst.sttra_status FROM c4_stock_transfer cst JOIN  stock_batches sb ON cst.sttra_stbat_id = sb.stbat_id WHERE sb.stbat_id = 455 ORDER BY cst.sttra_id DESC LIMIT 1;"

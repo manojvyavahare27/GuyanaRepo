@@ -92,6 +92,7 @@ class ClinicalExtraDetails {
     this.deleteReason = page.locator("xpath=//textarea[@aria-label='Reason']");
     //this.saveDeleteReason = page.locator("xpath=//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-6td7do']//button[@data-testid='Save']");
     this.saveDeleteReason = page.locator("xpath=//button[@aria-label='saveDeleteReason']");
+    this.closePopUp=page.locator("xpath=//div[@aria-labelledby='PopupTitle_addExtraDetails']//following-sibling::button[@aria-label='cancelIcon']")
 
     //Medication Certificate
     this.confirm = page.locator("xpath=//button[@aria-label='confirmMedicalCertificate']");
@@ -217,7 +218,7 @@ class ClinicalExtraDetails {
     this.medicationGradeForAdministrator = page.locator("xpath=//input[@name='userGradesThatCanAdministatorMedicationMAED']");
     this.maxReffills = page.locator("xpath=//input[@name='maxRefills']");
     this.quantity = page.locator("xpath=//input[@name='quantity']");
-    this.unit = page.locator("xpath=//input[@name='unit']");
+    this.unit = page.locator("xpath=//input[@name='units']");
     this.currentLocation = page.locator("xpath=//input[@name='currentLocation']");
     this.linkToDiagnosis = page.locator("xpath=//input[@name='linkToDiagnosis']");
     this.adherent = page.locator("xpath=//input[@name='adherent']");
@@ -402,6 +403,11 @@ class ClinicalExtraDetails {
 
   async clickOnCancelDelete() {
     await clickElement(this.page, this.cancelDelete);
+  }
+
+  async clickOnClosePopup()
+  {
+    await clickElement(this.page, this.closePopUp)
   }
 
   async clickOnConfirmDelete() {
@@ -716,8 +722,8 @@ async selectMachineName(mname)
     await this.quantity.clear();
     await typeText(this.page, this.quantity, meded_value_Quantity);
   }
-  async enterUnit(unit) {
-    await typeText(this.page, this.unit, unit);
+  async enterUnit(meded_value_Unit) {
+    await selectFromDropdown(this.page, this.unit, meded_value_Unit);
   }
   async selectCurrentLocation(currentLocation) {
     await selectFromDropdown(this.page, this.currentLocation, currentLocation);

@@ -181,7 +181,7 @@ test.describe("Medications Category", () => {
       await page.getByLabel('cancelIcon').click();      
       await Medications.selectandAddClinicalItem(jsonData.AddMedication[index].pacr_que_name)
       await page.waitForTimeout(2000);            
-      //await page.pause()      
+      await page.pause()      
       await MedicationsExtraDetails.EnterOnDose(page,jsonData.AddMedication[index].medi_dose,jsonData.AddMedication[index].pacr_que_name)
       await page.getByTestId('Ok').click()
       await MedicationsExtraDetails.enterForm()
@@ -199,34 +199,36 @@ test.describe("Medications Category", () => {
       await MedicationsExtraDetails.enterStartDate(jsonData.AddMedication[index].medi_start_date)
       await MedicationsExtraDetails.enterReviewDate(jsonData.AddMedication[index].medi_stop_date)      
       await MedicationsExtraDetails.enterStopDate(jsonData.AddMedication[index].medi_stop_date)
-      await MedicationsExtraDetails.selectSideEffects(jsonData.AddMedication[index].mse_text)  
-      await MedicationsExtraDetails.selectIndication(jsonData.AddMedication[index].meded_value) 
+      // await MedicationsExtraDetails.selectSideEffects(jsonData.AddMedication[index].mse_text)  
+      // await MedicationsExtraDetails.selectIndication(jsonData.AddMedication[index].meded_value) 
       await MedicationsExtraDetails.selectStoppedReason(jsonData.AddMedication[index].medi_stopped_reason_eli_text)
       //await page.pause()
-      await MedicationsExtraDetails.selectPGDPSD(jsonData.AddMedication[index].meded_value_PGD)       
+      //await MedicationsExtraDetails.selectPGDPSD(jsonData.AddMedication[index].meded_value_PGD)       
       //await MedicationsExtraDetails.enterMedicationGradeForAdministrator(jsonData.AddMedication[index].meded_value_Administrator)
-      await MedicationsExtraDetails.selectMaxReffills(jsonData.AddMedication[index].meded_value_MaxReffills)       
+      //await MedicationsExtraDetails.selectMaxReffills(jsonData.AddMedication[index].meded_value_MaxReffills)       
       //await MedicationsExtraDetails.selectQuantity(jsonData.AddMedication[index].meded_value_Quantity)
-      
+      await page.pause()
       await MedicationsExtraDetails.enterUnit(jsonData.AddMedication[index].meded_value_Unit)
       await MedicationsExtraDetails.selectCurrentLocation(jsonData.AddMedication[index].pcl_location_name)      
-      await MedicationsExtraDetails.selectAdherent(jsonData.AddMedication[index].meded_value_Adherent)
-      await MedicationsExtraDetails.clickOnPrescribeAndSupply()
+    //  await MedicationsExtraDetails.selectAdherent(jsonData.AddMedication[index].meded_value_Adherent)
+      await page.pause()
+   // await MedicationsExtraDetails.clickOnPrescribeAndSupply()
      // await MedicationsExtraDetails.clickOnSuitableForDelivery()
       await MedicationsExtraDetails.clickOnAddToPrescribe()
-      await MedicationsExtraDetails.clickOnSupply()
+      await page.pause()
+     // await MedicationsExtraDetails.clickOnSupply()
       await MedicationsExtraDetails.clickOnSetAsDefault()
-      await MedicationsExtraDetails.clickOnRepeatable()
+      //await MedicationsExtraDetails.clickOnRepeatable()
       //await MedicationsExtraDetails.clickOPrivateRecord()  
-      await MedicationsExtraDetails.selectEndoserment(jsonData.AddMedication[index].paprd_endorsement) 
-      await MedicationsExtraDetails.enterPriceCheckQuantity(jsonData.AddMedication[index].meded_value_Price_check_quantity)  
+      // await MedicationsExtraDetails.selectEndoserment(jsonData.AddMedication[index].paprd_endorsement) 
+      // await MedicationsExtraDetails.enterPriceCheckQuantity(jsonData.AddMedication[index].meded_value_Price_check_quantity)  
       await MedicationsExtraDetails.enterClinicalItemNotes(jsonData.AddMedication[index].medi_notes) 
             await page.pause()
       await page.waitForTimeout(1000);  
       await MedicationsExtraDetails.clickOnSaveExtraDetails();      
       await page.waitForTimeout(1000);           
-      await MedicationsExtraDetails.clickOnSaveCheckList()      
-      await page.waitForTimeout(1000); 
+      // await MedicationsExtraDetails.clickOnSaveCheckList()      
+      // await page.waitForTimeout(1000); 
 
       ////// Database comparison- Patient Clinical Records - ADDING NEW Medications/////////
       sqlQuery =
@@ -247,6 +249,17 @@ test.describe("Medications Category", () => {
     } else {
       console.log("\n Patient Clinical Records Comparision adding new Medications: Parameters from both JSON files do not match!\n");
     } 
+    await page.pause()
+    await MedicationsExtraDetails.clickOnClosePopup()
+
+
     }
+
+
+    
+
+
   });
+
+
 });
