@@ -59,7 +59,13 @@ class ServiceBookApp
         this.btnCreateDraft=page.locator("xpath=//button[@data-testid='Create Draft']")
         this.btnOk=page.locator("xpath=//button[@data-testid='Ok']")
 
+
+
     }
+
+
+  
+
 
     //Generate app letters
     async clickOnGenerateMultipleAppButton()

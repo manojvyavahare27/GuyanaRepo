@@ -322,7 +322,7 @@ test.describe("Database Comparison Book New App and Cancel", () => {
           await servicebookapp.clickOnHPnameLink(jsonData.bookNewAppointments[index].rea_hp_name_link)       
           await servicebookapp.clickOnShowCalendarbtn() 
           
-          
+          await page.pause()
           //Select Morning Slots
           await servicebookapp.clickOnMorningSlots(jsonData.bookNewAppointments[index].convertedTime)
           await page.waitForTimeout(2000)

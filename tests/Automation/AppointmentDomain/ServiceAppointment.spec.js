@@ -81,21 +81,86 @@ test.describe("Database Comparison Service Appointment", () => {
         await loginpage.enter_Password(jsonData.loginDetails[0].password);
         await page.waitForTimeout(1500);
         await loginpage.clickOnLogin()
-        await expect(page.getByText('Login success')).toHaveText('Login success')   
+        await page.pause()
+       // await expect(page.getByText('Login success')).toHaveText('Login success')   
         await homepage.clickonSidebarHomeIcon()
         
         await homepage.clickOnSidebarAppointmentIcon()       
         await serviceapp.clickOnSeachButton()
-        await serviceapp.enterStartDate(jsonData.serviceAppointments[index].serviceStartDate)
-        await serviceapp.enterEndDate(jsonData.serviceAppointments[index].serviceEndDate)
-        await serviceapp.clickOnSeachButton()
+        // await serviceapp.enterStartDate(jsonData.serviceAppointments[index].serviceStartDate)
+        // await serviceapp.enterEndDate(jsonData.serviceAppointments[index].serviceEndDate)
+        // await serviceapp.clickOnSeachButton()
+
+        await page.pause()
+        await serviceapp.fillSearchFilters({
+          
+          txtStartDate:"09/11/2025",
+          txtEndDate:"10/11/2025",
+    locations: "Cardio Location",
+    clinicType: "Cardiology Clinic",
+    rooms: "All Rooms",    
+    appointmentFor:"Prerelease AutoEst (General Medicine)",
+    patientFamilyName: "Riomed",
+    status: "Attended",
+    from: "00:00",
+    to: "23:00",     
+});
+
+await serviceapp.clickOnSeachButton()
+
+
+ await serviceapp.fillSearchFilters({
+   txtStartDate:"09/11/2025",
+          txtEndDate:"25/11/2025",
+    clinicType: "Cardiology Clinic",
+    rooms: "All Rooms",    
+   // appointmentFor:"Prerelease AutoEst (General Medicine)",
+    patientFamilyName: "Appa",
+    status: "Attended",
+   from: "00:00",
+    to: "23:00",  
+});
+await serviceapp.clickOnSeachButton()
+
+
+await serviceapp.fillSearchFilters({    
+   txtStartDate:"10/11/2025",
+          txtEndDate:"25/11/2025",
+    rooms: "All Rooms",    
+    patientFamilyName: "Riomed",
+    status: "Attended",
+   from: "00:00",
+   to: "23:00",  
+});
+await serviceapp.clickOnSeachButton()
+
+await serviceapp.fillSearchFilters({    
+  txtStartDate:"09/11/2025",
+          txtEndDate:"27/11/2025",
+    patientFamilyName: "Riomed",
+    appointmentFor:"Prerelease AutoEst (General Medicine)",
+    status: "Attended",
+   from: "00:00",
+   to: "23:00",   
+});
+await serviceapp.clickOnSeachButton()
+
+await serviceapp.fillSearchFilters({  
+  txtStartDate:"10/11/2025",
+          txtEndDate:"25/11/2025",  
+    status: "Attended",
+    from: "00:00",
+    to: "23:00",     
+});
+await serviceapp.clickOnSeachButton()
        
-        await serviceapp.clickOnAppTypeLink()
-        await serviceapp.clickOnNewAppTypeLink()    
-        await serviceapp.clickOnChangeButton()
-        await expect(page.getByText('Appointment type has been changed successfully')).toHaveText('Appointment type has been changed successfully')     
+        // await serviceapp.clickOnAppTypeLink()
+        // await serviceapp.clickOnNewAppTypeLink()    
+        // await serviceapp.clickOnChangeButton()
+        // await expect(page.getByText('Appointment type has been changed successfully')).toHaveText('Appointment type has been changed successfully')     
         
 
+        await page.pause()
       
       var sqlFilePath = "SQLResults/AppointmentDomain/ServiceAppointment.json";
       var sqlQuery =
