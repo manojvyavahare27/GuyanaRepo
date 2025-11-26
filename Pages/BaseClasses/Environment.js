@@ -2,6 +2,7 @@ export default class Environment{
     constructor(page)
     {
         this.page=page
+        //Added comment
         //this.Test="http://localhost:3000/cellmaUser/login";
       // this.Test="http://10.0.0.64:3000/cellmaUser/login"
      // this.Test="https://www.cellma4demo.com/cellmaUser/login"
