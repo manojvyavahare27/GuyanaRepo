@@ -97,6 +97,7 @@ test.describe('New Patient', () => {
      
       await homepage.clickonSidebarHomeIcon()
       await homepage.clickOnPatientIcon();
+      //await page.pause()
 
 //Regression for Patient search page
       //Check all links

@@ -10248,3 +10248,20 @@
 {"level":"info","message":"Clicked on Search button successfully","timestamp":"2025-11-27T06:13:51.102Z"}
 {"level":"info","message":"Given Name entered successfully","timestamp":"2025-11-27T06:13:51.257Z"}
 {"level":"info","message":"Family Name entered successfully","timestamp":"2025-11-27T06:13:51.629Z"}
+{"level":"info","message":"Clicked on Login button successfully","timestamp":"2025-12-03T10:09:49.866Z"}
+{"level":"info","message":"Clicked on Patient Icon successfully","timestamp":"2025-12-03T10:09:53.171Z"}
+{"level":"info","message":"Clicked on Search button successfully","timestamp":"2025-12-03T10:09:56.706Z"}
+{"level":"info","message":"Given Name entered successfully","timestamp":"2025-12-03T10:09:56.840Z"}
+{"level":"info","message":"Family Name entered successfully","timestamp":"2025-12-03T10:09:57.154Z"}
+{"level":"info","message":"Clicked on Login button successfully","timestamp":"2025-12-03T10:11:33.244Z"}
+{"level":"info","message":"Clicked on Patient Icon successfully","timestamp":"2025-12-03T10:13:04.853Z"}
+{"level":"info","message":"Clicked on Search button successfully","timestamp":"2025-12-03T10:13:05.138Z"}
+{"level":"info","message":"Given Name entered successfully","timestamp":"2025-12-03T10:13:05.345Z"}
+{"level":"info","message":"Clicked on Login button successfully","timestamp":"2025-12-03T10:13:26.466Z"}
+{"level":"info","message":"Clicked on Patient Icon successfully","timestamp":"2025-12-03T10:13:37.712Z"}
+{"level":"info","message":"Clicked on Search button successfully","timestamp":"2025-12-03T10:13:38.040Z"}
+{"level":"info","message":"Given Name entered successfully","timestamp":"2025-12-03T10:13:38.768Z"}
+{"level":"info","message":"Family Name entered successfully","timestamp":"2025-12-03T10:13:39.735Z"}
+{"level":"info","message":"Sex selected successfully","timestamp":"2025-12-03T10:13:40.984Z"}
+{"level":"info","message":"Born Date selected successfully","timestamp":"2025-12-03T10:15:26.986Z"}
+{"level":"info","message":"Clicked on Search button successfully","timestamp":"2025-12-03T10:15:27.468Z"}

@@ -250,6 +250,13 @@ class PatientSearch
         console.log(`✅ Family Name filled correctly: "${value}"`);
     }
 }
+
+
+    async selectSexFemale(pat_sex)
+    {
+        await this.dropdown_PatientSex.click()
+        await this.page.getByRole('option', { name: pat_sex }).click()
+    }
     
     //Hospital Ref
     async enterHospitalRef(name)
