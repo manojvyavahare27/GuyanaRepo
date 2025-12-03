@@ -3,8 +3,11 @@ class ServiceReferrals
     constructor(page)
     {
         this.page=page
+
+
+
         //Appointment Tab
-        this.alllistlist=page.getByTestId('Links')
+        this.alllistlist=page.locator("xpath=//div[contains(text(),'Links')]")
         this.pendingReferrallink=page.getByRole('heading', { name: 'Pending Referrals' })
         this.sidebarlinkAddAppointments = page.getByRole('button', { name: 'Add Appointments' })
         this.sidebarlinkServiceAppointment = page.getByRole('button', { name: 'Service Appointments' })
@@ -90,13 +93,76 @@ class ServiceReferrals
        //Customisable Service Referral
        this.btnSetting=page.getByTestId('Setting Button')
        this.btnCustomizableView=page.getByRole('menuitem', { name: 'Customizable View' })
+
+       //All Links under Links on Service Referral page.
+       this.diagnosisLink=page.locator("xpath=//li[@data-testid='diagnosis']")
+       this.documentsLink=page.locator("xpath=//li[@data-testid='documents']")
+       this.examinationLink=page.locator("xpath=//li[@data-testid='examination']")
+         this.investigationLink=page.locator("xpath=//li[@data-testid='investigation']")
+         this.lifestyleLink=page.locator("xpath=//li[@data-testid='lifestyle']")
+         this.medicationLink=page.locator("xpath=//li[@data-testid='medications']")
+         this.overviewLink=page.locator("xpath=//li[@data-testid='overview']")
+         this.physicalsignsLink=page.locator("xpath=//li[@data-testid='physicalSigns']")
+         this.problemsLink=page.locator("xpath=//li[@data-testid='problems']")
+         this.proceduresLink=page.locator("xpath=//li[@data-testid='procedures']")
+         this.recommenationsLink=page.locator("xpath=//li[@data-testid='recommendations']")
+         this.riskLink=page.locator("xpath=//li[@data-testid='risk']")
+         this.scanLink=page.locator("xpath=//li[@data-testid='scans']")
+
+        
+
+
+       this.backButtononPopup=page.locator("xpath=//button[@aria-label='subPageBackButton']")
+       this.closePopUp=page.locator("xpath=//button[@aria-label='cancelIcon']")
     }
 
-    //click on link
+
+
+    //click on link and sublinks
+
+
+    //Reusable method for links calling.
+
+    async openAndCloseLink(linkLocator, linkName) {
+
+    console.log(`Clicking on ${linkName} (Back button flow)...`);
+    await this.clickOnLinks();
+    await linkLocator.click();
+    await this.clickOnBackButtonOnPopup();
+
+    console.log(`${linkName} closed using Back button.`);
+
+    console.log(`Clicking on ${linkName} again (Close X flow)...`);
+    await this.clickOnLinks();
+    await linkLocator.click();
+    await this.clickonClosePopup();
+
+    console.log(`${linkName} closed using Close (X) icon.`);
+}
+
+
+    async closePopUp()
+    {
+        await this.closePopUp.click()
+    }
+    async clickOnBackButtonOnPopup()
+    {
+        await this.backButtononPopup.click()
+    }
     async clickOnLinks()
     {
         await this.alllistlist.click()
     }
+
+    async clickOndiagnosisLink()
+    {
+        await this.diagnosisLink.click()
+    }
+     async clickOndocumentsLink()
+    {
+        await this.documentsLink.click()
+    }
+
 
     async clickOnPendingReferrallink()
     {

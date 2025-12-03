@@ -83,10 +83,28 @@ class PatientDuplicateCheck
     {
         await this.txtbox_mobile.type(pid_value1)
     }    
-    async enterEmailId(pat_email)
-    {
-        await this.txtbox_EmailID.type(pat_email)
+    // async enterEmailId(pat_email)
+    // {
+    //     await this.txtbox_EmailID.type(pat_email)
+    // }
+
+    // Task 75034: Validate email input for allowed domains
+    async enterEmailId(pat_email) {
+
+    // Allowed domains
+    const allowedDomains = ['.co', '.com', '.org'];
+
+    // Check if email matches valid domain
+    const isValid = allowedDomains.some(domain => pat_email.endsWith(domain));
+
+    if (!isValid) {
+        throw new Error(`Invalid email domain! Allowed domains are: ${allowedDomains.join(", ")}`);
     }
+
+    // Type only if valid
+    await this.txtbox_EmailID.fill(pat_email);
+}
+
     async clickOnDuplicateCheckButton()
     {
         await this.btn_Duplicate_check.click()

@@ -21,7 +21,7 @@ class PatientSearch
         this.txtbox_BornDate=page.getByPlaceholder('dd/mm/yyyy')
         this.dropdown_PatientSeenInLastDays=page.locator("xpath=//div[@id='mui-component-select-patientSeenInLastDays']")
         this.txtbox_MPINumber=page.getByRole('textbox', { name: 'MPI Number' })
-        this.checkbox_IncludeDeceasedPatient=page.getByRole('checkbox', { name: 'Include deceased patients' })
+        this.checkbox_IncludeDeceasedPatient=page.locator("xpath=//span[@data-testid='Include deceased patients']")
         this.checkbox_IncludeServicePatient=page.getByRole('checkbox', { name: 'Include service patients' })
         this.checkbox_Soundex=page.getByRole('checkbox', { name: 'Soundex' })
                
@@ -204,6 +204,11 @@ class PatientSearch
     {
         await this.txtbox_MPINumber.type(name)
         
+    }
+
+    async IncludeDeceasedPatientCheckBox()
+    {
+        await this.checkbox_IncludeDeceasedPatient.click()
     }
 
     //Given Name

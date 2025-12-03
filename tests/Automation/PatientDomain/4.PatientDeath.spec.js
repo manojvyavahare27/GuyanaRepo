@@ -107,7 +107,7 @@ test.describe("Patient Domain Db Comparison", () => {
         await patientdeath.enterCauseOfDeathReason(jsonData.patCauseOfDeath[index].pod_cause);
         await patientdeath.selectCheckBoxDeathCauseReason();
         await patientdeath.enterCauseOfDeathType();
-        await page.pause()
+        
         await patientdeath.enterOtherCauseeOfDeath();     
         await patientdeath.enterAdditionalNotes(jsonData.patDetails[index].pat_death_notes);
         await patientdeath.selectDateOfDeath();
@@ -143,6 +143,49 @@ test.describe("Patient Domain Db Comparison", () => {
           : "\n❌ Other cause of death does NOT match!");
 
         await patientdeath.clickOnViewInReadOnly();
+        await page.pause()
+
+        //Task 74374 : Verify Patient Death in Patient Search Results
+        await homepage.clickonSidebarHomeIcon();
+        await homepage.clickOnPatientIcon();
+        await patientsearch.enterGivenName(jsonData.patDetails[index].pat_firstname);
+        await patientsearch.enterFamilyName(jsonData.patDetails[index].pat_surname);
+        await patientsearch.IncludeDeceasedPatientCheckBox()
+        await patientsearch.clickOnSearchButton();
+
+        const firstName = jsonData.patDetails[index].pat_firstname;
+        const surName = jsonData.patDetails[index].pat_surname;
+
+await page.pause()
+        const today = new Date();
+const dd = String(today.getDate()).padStart(2, '0');
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+const yyyy = today.getFullYear();
+const todayDate = `${dd}/${mm}/${yyyy}`;
+console.info(todayDate);
+
+//const dodLocator = page.locator(`//div[@role='row'][.//span[text()='${firstName}'] and .//span[text()='${surName}']]//div[@data-field='${todayDate}']//span`);
+
+const date = "27/11/2025";
+
+const dodLocator = page.locator(`
+    //div[@role='row']
+        [.//span[text()='${firstName}'] and .//span[text()='${surName}']]
+    //span[text()='${todayDate}']
+`);
+
+await page.pause()
+console.info(dodLocator)
+if (await dodLocator.count() > 0) {
+  await page.pause()
+    console.log("DoD exists");
+} else {
+  await page.pause()
+    console.log("DoD does NOT exist");
+}
+
+
+
       }
     });
   });

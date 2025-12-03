@@ -32,7 +32,7 @@ class Homepage{
         this.sideIconMessages=page.getByTestId('messages')
         this.sideIconAppointment=page.locator("xpath=//div[@data-testid='appointments']")
         this.sideIconLetters=page.getByTestId('letters')
-        this.sideIconReferrals=page.getByTestId('referrals')
+        this.sideIconReferrals=page.locator("xpath=//div[@data-testid='moduleDrawerReferrals']")
         this.sideIconPatient=page.locator("xpath=//div[@data-testid='moduleDrawerPatients']")
         this.sideIconStock=page.locator("xpath=//div[@data-testid='moduleDrawerStock']")
        // this.sideIconRejectedReferral=page.getByTestId('ourRejectedReferrals')

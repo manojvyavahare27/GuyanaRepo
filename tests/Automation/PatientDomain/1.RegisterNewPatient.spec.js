@@ -107,14 +107,16 @@ test.describe('New Patient', () => {
 
       await patientsearch.selectBornDate(jsonData.addPatient[index].pat_dob);
       //await patientsearch.selectBornDate(formattedDate);
-      await page.pause();
+      
 
      
  patientsearch.clickOnSearchButton();
       await patientsearch.clickOnAddPatientbutton();
       await patientduplicatecheck.clickOnDuplicateCheckButton();
+
+      //task 75038: Validate mandatory fields on Patient Duplicate Check page
       // await expect(page.getByText("Photo Identification required")).toHaveText("Photo Identification required");
-      // await expect(page.getByText("Photo Identification ID required")).toHaveText("Photo Identification ID required");
+       await expect(page.getByText("Photo Identification ID required")).toHaveText("Photo Identification ID required");
       //await expect(page.getByText("Middle name(s) is required")).toHaveText("Middle name(s) is required");
 
       // await page.pause()
@@ -157,6 +159,7 @@ test.describe('New Patient', () => {
       } else {
         console.log("Date is not less than 5 days from current date");
       }
+      await page.pause()
       await patientduplicatecheck.enterMobileNumber(jsonData.patientIdentifier[index].pid_value1.toString());      
       await patientduplicatecheck.enterEmailId(jsonData.patientIdentifier[index].add_email);
       await patientduplicatecheck.clickOnDuplicateCheckButton();
